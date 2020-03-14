@@ -1,0 +1,8 @@
+.dialogues_content {
+    display: flex;
+}
+
+.item {
+    border: solid red 1px;
+    width: 35%;
+}

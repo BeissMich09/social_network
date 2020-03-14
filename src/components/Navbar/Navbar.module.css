@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #e1f5ff;
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 170px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000 !important;
+}
+
+.item {
+    color: cornsilk;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+
+.item:hover {
+    background-color: rgb(199, 236, 255);
+    ;
+}
+
+.active {
+    color: green;
+}

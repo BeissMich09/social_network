@@ -1,0 +1,35 @@
+.my_posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 98%;
+    margin: 0 auto;
+}
+
+.add_news {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add_news textarea {
+    border: solid 1px rgb(113, 208, 255);
+    border-radius: 5px;
+    height: 35px;
+    width: 80%;
+    resize: none;
+    padding: 10px 10px 0px 10px;
+}
+
+.add_news button {
+    width: 17%;
+    height: 48px;
+    border-radius: 5px;
+    border: solid 2px rgb(113, 208, 255);
+    background-color: rgb(174, 228, 255);
+    cursor: pointer;
+}
+
+.add_news button:hover {
+    background-color: rgb(155, 214, 253);
+    border: solid 2px rgb(90, 167, 255);
+}
