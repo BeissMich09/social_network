@@ -1,4 +1,17 @@
-.item {
+.dialogue_item {
     border: solid red 1px;
     width: 30%;
+}
+
+.item {
+    border: solid black 1px;
+}
+
+.item p {
+    margin: 0;
+    padding: 10px;
+}
+
+.item .active {
+    background-color: cornflowerblue;
 }

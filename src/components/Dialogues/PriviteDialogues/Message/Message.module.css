@@ -16,8 +16,9 @@
     align-items: center;
 }
 
-.name_photo p {
+.message p {
     margin: 0;
+    padding: 10px;
 }
 
 .name_photo img {
