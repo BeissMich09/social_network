@@ -2,6 +2,13 @@ import React from "react";
 import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
+
+
+let postData = [
+  {id:1, message:"Hi, how are you?", likes: 15},
+  {id:2, message:"Love me", likes: 10},
+  {id:3, message:"Я люблю Сережу", likes: 45}
+]
 const MyPosts = () => {
   /*   const posts = [
     { message: "Hi, how are you?", like: "15" },
@@ -26,9 +33,9 @@ const MyPosts = () => {
         {/*   {posts.map(post => {
           return <Post message={post.message} like={post.like} />;
         })} */}
-        <Post message="Hi, how are you?" like="15" />
-        <Post message="Love me" like="10" />
-        <Post message="Сережа серый пидор" like="14" />
+        <Post message={postData[0].message} like={postData[0].likes} />
+        <Post message={postData[1].message} like={postData[0].likes} />
+        <Post message={postData[2].message} like={postData[0].likes} />
       </div>
     </div>
   );
