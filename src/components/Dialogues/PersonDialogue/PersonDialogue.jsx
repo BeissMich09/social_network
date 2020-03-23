@@ -2,7 +2,7 @@ import React from "react";
 import style from "./PersonDialogue.module.css";
 import DialogueItem from "./DialogueItem/DialogueItem";
 
-let UserArr = [
+let userArr = [
   { id: 1, name: "Nastya" },
   { id: 2, name: "Sergey" },
   { id: 3, name: "Sanya" },
@@ -10,17 +10,13 @@ let UserArr = [
   { id: 5, name: "Valera" }
 ];
 
+let dialoguesElem = userArr.map(user => (
+  <DialogueItem name={user.name} id={user.id} />
+));
+
 const PersonDialogue = props => {
   console.log(props.path);
-  return (
-    <div className={style.dialogue_item}>
-      <DialogueItem name={UserArr[0].name} id={UserArr[0].id} />
-      <DialogueItem name={UserArr[1].name} id={UserArr[1].id} />
-      <DialogueItem name={UserArr[2].name} id={UserArr[2].id} />
-      <DialogueItem name={UserArr[3].name} id={UserArr[3].id} />
-      <DialogueItem name={UserArr[4].name} id={UserArr[4].id} />
-    </div>
-  );
+  return <div className={style.dialogue_item}>{dialoguesElem}</div>;
 };
 
 export default PersonDialogue;

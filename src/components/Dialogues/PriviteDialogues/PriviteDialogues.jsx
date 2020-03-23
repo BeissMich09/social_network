@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./PriviteDialogues.module.css";
 import Message from "./Message/Message";
-// import {UserArr,PersonDialogue} from "./../PersonDialogue/PersonDialogue"
-
 
 let MessageArr = [
   { id: 1, message: "Hi" },
@@ -15,8 +13,11 @@ let MessageArr = [
 const PriviteDialogues = props => {
   return (
       <div className={style.item}>
-        {/* <Message name={UserArr[0].name} message={MessageArr[1].message} /> */}
+        <Message name="Nastya" message={MessageArr[1].message} />
+        <Message name="Me" message={MessageArr[2].message} />
+        <Message name="Nastya" message={MessageArr[4].message} />
       </div>
+    
   );
 };
 
