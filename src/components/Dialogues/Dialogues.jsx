@@ -8,8 +8,8 @@ const Dialogues = props => {
     <div className={style.dialogues}>
       <h1>Dialogues</h1>
       <div className={style.dialogues_content}>
-        <PersonDialogue />
-        <PriviteDialogues />
+        <PersonDialogue userArr={props.userArr}/>
+        <PriviteDialogues messageArr={props.messageArr}/>
       </div>
     </div>
   );

@@ -5,6 +5,11 @@
 
 .item {
     border: solid black 1px;
+    padding: 5px;
+}
+
+.item:hover {
+    background-color: rgb(199, 236, 255);
 }
 
 .item p {
@@ -12,6 +17,11 @@
     padding: 10px;
 }
 
+.item a {
+    text-decoration: none;
+    color: black;
+}
+
 .item .active {
-    background-color: cornflowerblue;
+    color: green;
 }
