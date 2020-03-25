@@ -25,8 +25,8 @@ const App = props => {
             path="/dialogues"
             render={() => (
               <Dialogues
-                userArr={props.appState.dialoguePage.userArr}
-                messageArr={props.appState.dialoguePage.messageArr}
+                userArr={props.appState.dialoguesPage.userArr}
+                messageArr={props.appState.dialoguesPage.messageArr}
               />
             )}
           />
