@@ -9,30 +9,34 @@ import { Route, BrowserRouter } from "react-router-dom";
 import Setting from "./components/Setting/Setting";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
+import Friends from "./components/Friends/Friends";
 
 const App = props => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar />
+        <Navbar arrayBest={props.state.bestFriendPage.arrayBest}/>
         <div className="app-wrapper-content">
           <Route
             path="/profile"
-            render={() => <Profile postData={props.appState.profilePage.postData} />}
+            render={() => (
+              <Profile postData={props.state.profilePage.postData} />
+            )}
           />
           <Route
             path="/dialogues"
             render={() => (
               <Dialogues
-                userArr={props.appState.dialoguesPage.userArr}
-                messageArr={props.appState.dialoguesPage.messageArr}
+                userArr={props.state.dialoguesPage.userArr}
+                messageArr={props.state.dialoguesPage.messageArr}
               />
             )}
           />
           <Route path="/music" render={() => <Music />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/setting" render={() => <Setting />} />
+          <Route path="/friends" render={() => <Friends  />} />
         </div>
       </div>
     </BrowserRouter>

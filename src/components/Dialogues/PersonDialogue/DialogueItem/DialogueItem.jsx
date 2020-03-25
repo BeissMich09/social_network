@@ -6,6 +6,7 @@ const DialogueItem = props => {
   return (
     <div className={style.item}>
       <NavLink activeClassName={style.active} to={"/dialogues/" + props.id}>
+      <img src="https://redcdn.net/topicit/images/no-avatar-1.png" alt="" />
         {props.name}
       </NavLink>
     </div>

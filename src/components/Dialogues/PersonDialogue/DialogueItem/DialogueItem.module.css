@@ -8,6 +8,10 @@
     padding: 5px;
 }
 
+.item img {
+    width: 50px;
+}
+
 .item:hover {
     background-color: rgb(199, 236, 255);
 }
@@ -20,6 +24,7 @@
 .item a {
     text-decoration: none;
     color: black;
+    display: flex;
 }
 
 .item .active {

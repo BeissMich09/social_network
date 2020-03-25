@@ -22,6 +22,13 @@ let state = {
       { id: 4, message: "Go home" },
       { id: 5, message: "I go" }
     ]
+  },
+  bestFriendPage: {
+    arrayBest: [
+      { id: 1, name: "Nastya" },
+      { id: 2, name: "Sergey" },
+      { id: 3, name: "Sanya" }
+    ]
   }
 };
 
