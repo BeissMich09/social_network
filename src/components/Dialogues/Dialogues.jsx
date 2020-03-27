@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Dialogues.module.css";
 import PersonDialogue from "./PersonDialogue/PersonDialogue";
-import PriviteDialogues from "./PriviteDialogues/PriviteDialogues";
+import PrivateDialogues from "./PrivateDialogues/PrivateDialogues";
 
 const Dialogues = props => {
   return (
@@ -9,7 +9,7 @@ const Dialogues = props => {
       <h1>Dialogues</h1>
       <div className={style.dialogues_content}>
         <PersonDialogue userArr={props.userArr}/>
-        <PriviteDialogues messageArr={props.messageArr}/>
+        <PrivateDialogues messageArr={props.messageArr}/>
       </div>
     </div>
   );

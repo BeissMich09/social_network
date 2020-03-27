@@ -1,0 +1,27 @@
+    .item {
+        border: solid red 1px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 15px;
+    }
+    
+    .item textarea {
+        border: solid 1px rgb(113, 208, 255);
+        border-radius: 5px;
+        height: 35px;
+        width: 70%;
+        resize: none;
+        padding: 10px 10px 0px 10px;
+    }
+    
+    .item button {
+        width: 10%;
+        height: 48px;
+        border-radius: 5px;
+        border: solid 2px rgb(113, 208, 255);
+        background-color: rgb(174, 228, 255);
+        cursor: pointer;
+    }

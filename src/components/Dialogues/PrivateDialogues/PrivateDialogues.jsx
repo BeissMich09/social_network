@@ -1,17 +1,18 @@
 import React from "react";
-import style from "./PriviteDialogues.module.css";
+import style from "./PrivateDialogues.module.css";
 import Message from "./Message/Message";
+import CloudSend from "./СloudSend/CloudSend";
 
-
-const PriviteDialogues = props => {
+const PrivateDialogues = props => {
   let messageElem = props.messageArr.map(message => (
     <Message name={"Nastya"} message={message.message} />
   ));
   return (
     <div className={style.item}>
-    {messageElem}
+      {messageElem}
+      <CloudSend/>
     </div>
   );
 };
 
-export default PriviteDialogues;
+export default PrivateDialogues;

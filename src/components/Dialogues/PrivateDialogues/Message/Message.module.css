@@ -1,19 +1,21 @@
 .item {
-    border: royalblue solid 1px;
     width: 97%;
     display: flex;
-}
-
-.item:last-child {
-    margin-bottom: 15px;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 3px;
 }
 
 .name_photo {
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
     justify-content: center;
     align-items: center;
+}
+
+.name_photo p {
+    margin: 0;
+    padding: 5px;
 }
 
 .message p {
@@ -24,4 +26,8 @@
 .name_photo img {
     width: 60px;
     height: 60px;
+}
+
+.item:last-child {
+    margin-bottom: 100px;
 }

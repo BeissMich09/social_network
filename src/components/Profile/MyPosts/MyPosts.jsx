@@ -7,6 +7,11 @@ const MyPosts = props => {
     <Post message={post.message} like={post.likes} />
   ));
 
+  let addPost = () => {
+    let text = newPostElement.current.value;
+    alert(text);
+  };
+  let newPostElement = React.createRef();
   return (
     <div className={classProfile.my_posts}>
       <div className="header_posts">
@@ -14,8 +19,8 @@ const MyPosts = props => {
       </div>
 
       <div className={classProfile.add_news}>
-        <textarea placeholder="Your news"></textarea>
-        <button>Send</button>
+        <textarea ref={newPostElement} placeholder="Your news"></textarea>
+        <button onClick={addPost}>Send</button>
       </div>
       <div className={classProfile.added_news}>{postsElem}</div>
     </div>

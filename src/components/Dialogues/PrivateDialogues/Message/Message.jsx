@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Message.module.css";
 
-const Message = (props) => {
+const Message = props => {
   return (
     <div className={style.item}>
       <div className={style.name_photo}>
