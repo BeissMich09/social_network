@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage: {
     postData: [
@@ -5,7 +7,8 @@ let state = {
       { id: 2, message: "Love me", likes: 10 },
       { id: 3, message: "Я люблю Сережу", likes: 45 },
       { id: 4, message: "Я хочу найти работу", likes: 14 }
-    ]
+    ],
+    newPostText:"Hey, i am forntend developer",
   },
   dialoguesPage: {
     userArr: [
@@ -29,19 +32,28 @@ let state = {
       { id: 2, name: "Sergey" },
       { id: 3, name: "Sanya" }
     ],
-    allFriend:[
-    {id: 1, name: "Nastya"},
-    {id: 2, name: "Sergey"},
-    {id: 3, name: "Sanya" },
-    {id:4, name:"Fedos"},
-    {id:5, name:"Valera"},
-    {id:6, name:"Marina"},
-    {id:7, name:"Vasya"},
-    {id:8, name:"Ira"},
-    {id:9, name:"Inna"},
-    {id:10, name:"Kirill"},
+    allFriend: [
+      { id: 1, name: "Nastya" },
+      { id: 2, name: "Sergey" },
+      { id: 3, name: "Sanya" },
+      { id: 4, name: "Fedos" },
+      { id: 5, name: "Valera" },
+      { id: 6, name: "Marina" },
+      { id: 7, name: "Vasya" },
+      { id: 8, name: "Ira" },
+      { id: 9, name: "Inna" },
+      { id: 10, name: "Kirill" }
     ]
   }
 };
+export let addPost = postMessage => {
+  let newPost = { id: 5, message: postMessage, likes: 0 };
+  state.profilePage.postData.push(newPost);
+  rerenderEntireTree(state);
+};
 
+export let newPostTextChange = newText => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
 export default state;

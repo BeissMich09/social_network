@@ -16,12 +16,16 @@ const App = props => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar arrayBest={props.state.friendPage.arrayBest}/>
+        <Navbar arrayBest={props.state.friendPage.arrayBest} />
         <div className="app-wrapper-content">
           <Route
             path="/profile"
             render={() => (
-              <Profile postData={props.state.profilePage.postData} />
+              <Profile
+                newPostTextChange={props.newPostTextChange}
+                addPost={props.addPost}
+                profilePage={props.state.profilePage}
+              />
             )}
           />
           <Route
@@ -36,7 +40,12 @@ const App = props => {
           <Route path="/music" render={() => <Music />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/setting" render={() => <Setting />} />
-          <Route path="/friends" render={() => <Friends  allFriend={props.state.friendPage.allFriend}/>} />
+          <Route
+            path="/friends"
+            render={() => (
+              <Friends allFriend={props.state.friendPage.allFriend} />
+            )}
+          />
         </div>
       </div>
     </BrowserRouter>

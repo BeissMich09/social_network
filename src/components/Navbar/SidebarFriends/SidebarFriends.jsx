@@ -3,7 +3,6 @@ import style from "./SidebarFriends.module.css";
 import BestFriends from "./BestFriends/BestFriends";
 
 const SidebarFriends = props => {
-    console.log("Sidebar",props)
   let bestFriend = props.arrayBest.map(friend => <BestFriends name={friend.name} />);
 
   return <div className={style.item}>{bestFriend}</div>;

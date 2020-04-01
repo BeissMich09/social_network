@@ -9,8 +9,16 @@ const MyPosts = props => {
 
   let addPost = () => {
     let text = newPostElement.current.value;
-    alert(text);
+    props.addPost(text);
+    newPostElement.current.value = "";
   };
+
+  let onChangePost = () => {
+    let text = newPostElement.current.value;
+    props.newPostTextChange(text);
+    console.log(text)
+  };
+
   let newPostElement = React.createRef();
   return (
     <div className={classProfile.my_posts}>
@@ -19,7 +27,12 @@ const MyPosts = props => {
       </div>
 
       <div className={classProfile.add_news}>
-        <textarea ref={newPostElement} placeholder="Your news"></textarea>
+        <textarea
+          onChange={onChangePost}
+          ref={newPostElement}
+          placeholder="Your news"
+          value={props.newPostText}
+        />
         <button onClick={addPost}>Send</button>
       </div>
       <div className={classProfile.added_news}>{postsElem}</div>
