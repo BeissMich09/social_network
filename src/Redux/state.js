@@ -8,7 +8,7 @@ let state = {
       { id: 3, message: "Я люблю Сережу", likes: 45 },
       { id: 4, message: "Я хочу найти работу", likes: 14 }
     ],
-    newPostText:"Hey, i am forntend developer",
+    newPostText:"",
   },
   dialoguesPage: {
     userArr: [
@@ -46,8 +46,8 @@ let state = {
     ]
   }
 };
-export let addPost = postMessage => {
-  let newPost = { id: 5, message: postMessage, likes: 0 };
+export let addPost = () => {
+  let newPost = { id: 5, message: state.profilePage.newPostText, likes: 0 };
   state.profilePage.postData.push(newPost);
   rerenderEntireTree(state);
 };
