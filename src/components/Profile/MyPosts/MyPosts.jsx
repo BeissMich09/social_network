@@ -9,8 +9,13 @@ const MyPosts = props => {
 
   let addPost = () => {
     let text = newPostElement.current.value;
-    props.addPost(text);
-    props.newPostTextChange("");
+   
+    if (text.trim() === "") {
+      newPostElement.current.value = "";
+    } else if (text !== "") {
+      props.addPost(text);
+      newPostElement.current.value = "";
+    }
   };
 
   let onChangePost = () => {

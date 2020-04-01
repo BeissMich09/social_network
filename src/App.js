@@ -34,6 +34,8 @@ const App = props => {
               <Dialogues
                 userArr={props.state.dialoguesPage.userArr}
                 messageArr={props.state.dialoguesPage.messageArr}
+                newMessageTextChange={props.newMessageTextChange}
+                sendMessage={props.sendMessage}
               />
             )}
           />

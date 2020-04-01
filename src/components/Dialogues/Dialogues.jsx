@@ -8,8 +8,12 @@ const Dialogues = props => {
     <div className={style.dialogues}>
       <h1>Dialogues</h1>
       <div className={style.dialogues_content}>
-        <PersonDialogue userArr={props.userArr}/>
-        <PrivateDialogues messageArr={props.messageArr}/>
+        <PersonDialogue userArr={props.userArr} />
+        <PrivateDialogues
+          messageArr={props.messageArr}
+          newMessageTextChange={props.newMessageTextChange}
+          sendMessage={props.sendMessage}
+        />
       </div>
     </div>
   );

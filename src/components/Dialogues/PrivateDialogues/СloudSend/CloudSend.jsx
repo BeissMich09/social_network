@@ -6,17 +6,24 @@ const CloudSend = props => {
   let sendMessage = () => {
     let text = newMessageElement.current.value;
     console.log("cloud", text);
-    if (text === " ") {
-      text = "";
+    if (text.trim() === "") {
+      newMessageElement.current.value = "";
     } else if (text !== "") {
-      alert(text);
-      text = "";
+      props.sendMessage(text);
+      newMessageElement.current.value = "";
     }
   };
-
+  let onChangeMessage = () => {
+    let text = newMessageElement.current.value;
+    props.newMessageTextChange(text);
+  };
   return (
     <div className={style.item}>
-      <textarea ref={newMessageElement} name="" id=""></textarea>
+      <textarea
+        ref={newMessageElement}
+        onChange={onChangeMessage}
+        placeholder="Введите ваше сообщение"
+      ></textarea>
       <button onClick={sendMessage}>Send</button>
     </div>
   );
