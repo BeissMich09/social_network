@@ -13,3 +13,40 @@
     background-color: rgb(225, 245, 255);
     grid-area: content-full;
 }
+
+*::-webkit-scrollbar-button {
+    background-image: url("");
+    background-repeat: no-repeat;
+    width: 0;
+    height: 0;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #32312e;
+    box-shadow: 0px 0px 3px #000 inset;
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #6dc0c8 !important;
+    box-shadow: 0px 1px 1px #fff inset !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #56999f;
+}
+
+*::-webkit-resizer {
+    background-image: url("");
+    background-repeat: no-repeat;
+    width: 0;
+    height: 0;
+    background-color: #32312e !important;
+}
+
+*::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+}

@@ -9,7 +9,7 @@ const PrivateDialogues = props => {
   ));
   return (
     <div className={style.item}>
-      {messageElem}
+      <div className = {style.messages}>{messageElem}</div>
       <CloudSend
         newMessageTextChange={props.newMessageTextChange}
         sendMessage={props.sendMessage}

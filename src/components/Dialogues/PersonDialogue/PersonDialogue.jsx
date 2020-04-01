@@ -8,5 +8,4 @@ const PersonDialogue = (props) => {
   ));
   return <div className={style.dialogue_item}>{dialoguesElem}</div>;
 };
-
 export default PersonDialogue;
