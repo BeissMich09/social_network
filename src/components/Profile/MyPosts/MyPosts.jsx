@@ -2,25 +2,25 @@ import React from "react";
 import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = props => {
-  let postsElem = props.postData.map(post => (
+const MyPosts = (props) => {
+  let postsElem = props.postData.map((post) => (
     <Post message={post.message} like={post.likes} />
   ));
 
   let addPost = () => {
     let text = newPostElement.current.value;
-   
+
     if (text.trim() === "") {
       newPostElement.current.value = "";
     } else if (text !== "") {
-      props.addPost(text);
+      props.dispatch({ type: "ADD-POST", text: text });
       newPostElement.current.value = "";
     }
   };
 
   let onChangePost = () => {
     let text = newPostElement.current.value;
-    props.newPostTextChange(text);
+    props.dispatch({ type: "NEW-POST-TEXT-CHANGE", newText: text });
   };
 
   let newPostElement = React.createRef();

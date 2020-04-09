@@ -11,7 +11,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
 
-const App = props => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -22,8 +22,7 @@ const App = props => {
             path="/profile"
             render={() => (
               <Profile
-                newPostTextChange={props.newPostTextChange}
-                addPost={props.addPost}
+                dispatch={props.dispatch}
                 profilePage={props.state.profilePage}
               />
             )}
@@ -34,8 +33,7 @@ const App = props => {
               <Dialogues
                 userArr={props.state.dialoguesPage.userArr}
                 messageArr={props.state.dialoguesPage.messageArr}
-                newMessageTextChange={props.newMessageTextChange}
-                sendMessage={props.sendMessage}
+                dispatch={props.dispatch}
               />
             )}
           />

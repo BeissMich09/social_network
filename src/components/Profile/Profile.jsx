@@ -14,8 +14,7 @@ const Profile = props => {
       <MyPosts
         newPostTextChange={props.newPostTextChange}
         postData={props.profilePage.postData}
-        addPost={props.addPost}
-        newPostText={props.profilePage.newPostText}
+        dispatch={props.dispatch}
       />
     </div>
   );
