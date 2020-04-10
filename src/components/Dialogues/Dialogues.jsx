@@ -11,8 +11,8 @@ const Dialogues = props => {
         <PersonDialogue userArr={props.userArr} />
         <PrivateDialogues
           messageArr={props.messageArr}
-          newMessageTextChange={props.newMessageTextChange}
-          sendMessage={props.sendMessage}
+          dispatch={props.dispatch}
+       
         />
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import { addPostActionCreator, newPostTextChangeActionCreator } from "../../../Redux/state";
+
 
 const MyPosts = (props) => {
   let postsElem = props.postData.map((post) => (
@@ -13,14 +15,14 @@ const MyPosts = (props) => {
     if (text.trim() === "") {
       newPostElement.current.value = "";
     } else if (text !== "") {
-      props.dispatch({ type: "ADD-POST", text: text });
+      props.dispatch(addPostActionCreator());
       newPostElement.current.value = "";
     }
   };
 
   let onChangePost = () => {
     let text = newPostElement.current.value;
-    props.dispatch({ type: "NEW-POST-TEXT-CHANGE", newText: text });
+    props.dispatch(newPostTextChangeActionCreator(text));
   };
 
   let newPostElement = React.createRef();

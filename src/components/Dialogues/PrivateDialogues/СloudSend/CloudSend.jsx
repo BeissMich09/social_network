@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./CloudSend.module.css";
+import { sendMessageActionCreator, newMessageTextChangeActionCreator } from "../../../../Redux/state";
 
 const CloudSend = props => {
   let newMessageElement = React.createRef();
@@ -9,13 +10,13 @@ const CloudSend = props => {
     if (text.trim() === "") {
       newMessageElement.current.value = "";
     } else if (text !== "") {
-      props.sendMessage(text);
+      props.dispatch(sendMessageActionCreator());
       newMessageElement.current.value = "";
     }
   };
   let onChangeMessage = () => {
     let text = newMessageElement.current.value;
-    props.newMessageTextChange(text);
+    props.dispatch(newMessageTextChangeActionCreator(text));
   };
   return (
     <div className={style.item}>

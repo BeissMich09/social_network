@@ -1,7 +1,7 @@
 .app-wrapper {
     margin: 0 auto;
     width: 1400px;
-    height: 100%;
+    height: 100vh;
     display: grid;
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
@@ -49,4 +49,8 @@
 *::-webkit-scrollbar {
     width: 5px !important;
     height: 5px !important;
+}
+
+* {
+    box-sizing: border-box;
 }
