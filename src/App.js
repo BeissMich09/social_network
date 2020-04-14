@@ -13,40 +13,40 @@ import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
   return (
-      <div className="app-wrapper">
-        <Header />
-        <Navbar arrayBest={props.state.friendPage.arrayBest} />
-        <div className="app-wrapper-content">
-          <Route
-            path="/profile"
-            render={() => (
-              <Profile
-                dispatch={props.dispatch}
-                profilePage={props.state.profilePage}
-              />
-            )}
-          />
-          <Route
-            path="/dialogues"
-            render={() => (
-              <Dialogues
-                userArr={props.state.dialoguesPage.userArr}
-                messageArr={props.state.dialoguesPage.messageArr}
-                dispatch={props.dispatch}
-              />
-            )}
-          />
-          <Route path="/music" render={() => <Music />} />
-          <Route path="/news" render={() => <News />} />
-          <Route path="/setting" render={() => <Setting />} />
-          <Route
-            path="/friends"
-            render={() => (
-              <Friends allFriend={props.state.friendPage.allFriend} />
-            )}
-          />
-        </div>
+    <div className="app-wrapper">
+      <Header />
+      <Navbar arrayBest={props.state.friendPage.arrayBest} />
+      <div className="app-wrapper-content">
+        <Route
+          path="/profile"
+          render={() => (
+            <Profile
+              dispatch={props.dispatch}
+              profilePage={props.state.profilePage}
+            />
+          )}
+        />
+        <Route
+          path="/dialogues"
+          render={() => (
+            <Dialogues
+              store={props.store}
+              dialoguesPage={props.state.dialoguesPage}
+              dispatch={props.dispatch}
+            />
+          )}
+        />
+        <Route path="/music" render={() => <Music />} />
+        <Route path="/news" render={() => <News />} />
+        <Route path="/setting" render={() => <Setting />} />
+        <Route
+          path="/friends"
+          render={() => (
+            <Friends allFriend={props.state.friendPage.allFriend} />
+          )}
+        />
       </div>
+    </div>
   );
 };
 

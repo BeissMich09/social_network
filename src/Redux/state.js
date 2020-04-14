@@ -22,12 +22,13 @@ let store = {
         { id: 5, name: "Valera" },
       ],
       messageArr: [
-        { id: 1, message: "Hi" },
-        { id: 2, message: "How are you?" },
-        { id: 3, message: "I'm fine" },
-        { id: 4, message: "Go home" },
-        { id: 5, message: "I go" },
+        { id: 1, message: "Hi" , name: "Nastya"},
+        { id: 2, message: "How are you?" , name: "Sergey"},
+        { id: 3, message: "I'm fine" , name: "Nastya"},
+        { id: 4, message: "Go home", name: "Sergey" },
+        { id: 5, message: "I go", name: "Nastya" },
       ],
+      newMessageText: "",
     },
     friendPage: {
       arrayBest: [
@@ -48,7 +49,7 @@ let store = {
         { id: 10, name: "Kirill" },
       ],
     },
-    newMessageText: "",
+   
   },
   getState() {
     return this._state;
@@ -59,37 +60,6 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-
-  // addPost() {
-  //   let newPost = {
-  //     id: 5,
-  //     message: this._state.profilePage.newPostText,
-  //     likes: 0,
-  //   };
-  //   this._state.profilePage.postData.push(newPost);
-  //   this._state.profilePage.newPostText = "";
-  //   this._callSubscriber(this._state);
-  // },
-
-  // newPostTextChange(newText) {
-  //   this._state.profilePage.newPostText = newText;
-  //   this._callSubscriber(this._state);
-  // },
-
-  // sendMessage() {
-  //   let newMessage = {
-  //     id: 6,
-  //     message: this._state.dialoguesPage.newMessageText,
-  //   };
-  //   this._state.dialoguesPage.messageArr.push(newMessage);
-  //   this._state.dialoguesPage.newPostText = "";
-  //   this._callSubscriber(this._state);
-  // },
-
-  // newMessageTextChange(newText) {
-  //   this._state.dialoguesPage.newMessageText = newText;
-  //   this._callSubscriber(this._state);
-  // },
 
   dispatch(action) {
     if (action.type === ADD_POST) {
@@ -105,12 +75,9 @@ let store = {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
     } else if (action.type === SEND_MESSAGE) {
-      let newMessage = {
-        id: 6,
-        message: this._state.dialoguesPage.newMessageText,
-      };
-      this._state.dialoguesPage.messageArr.push(newMessage);
-      this._state.dialoguesPage.newPostText = "";
+      let newMessage = this._state.dialoguesPage.newMessageText;
+      this._state.dialoguesPage.messageArr.push({id:6, message:newMessage});
+      this._state.dialoguesPage.newMessageText = "";
       this._callSubscriber(this._state);
     } else if (action.type === NEW_MESSAGE_CHANGE) {
       this._state.dialoguesPage.newMessageText = action.newText;

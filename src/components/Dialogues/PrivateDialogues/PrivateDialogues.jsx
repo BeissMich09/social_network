@@ -12,6 +12,7 @@ const PrivateDialogues = props => {
       <div className = {style.messages}>{messageElem}</div>
       <CloudSend
         dispatch={props.dispatch}
+        store={props.store}
       />
     </div>
   );

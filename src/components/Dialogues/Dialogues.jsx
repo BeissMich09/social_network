@@ -3,18 +3,15 @@ import style from "./Dialogues.module.css";
 import PersonDialogue from "./PersonDialogue/PersonDialogue";
 import PrivateDialogues from "./PrivateDialogues/PrivateDialogues";
 
-const Dialogues = props => {
+const Dialogues = (props) => {
   return (
-    <div className={style.dialogues}>
-      <h1>Dialogues</h1>
-      <div className={style.dialogues_content}>
-        <PersonDialogue userArr={props.userArr} />
-        <PrivateDialogues
-          messageArr={props.messageArr}
-          dispatch={props.dispatch}
-       
-        />
-      </div>
+    <div className={style.dialogues_content}>
+      <PersonDialogue userArr={props.dialoguesPage.userArr} />
+      <PrivateDialogues
+        store={props.store}
+        messageArr={props.dialoguesPage.messageArr}
+        dispatch={props.dispatch}
+      />
     </div>
   );
 };
