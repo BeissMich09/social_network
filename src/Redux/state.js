@@ -1,3 +1,7 @@
+import reduerProfile from "./profile_reducer";
+import reduerDialogues from "./dialogues_reducer";
+import reduerFriends from "./friends_reducer";
+
 const ADD_POST = "ADD-POST";
 const NEW_POST_TEXT_CHANGE = "NEW-POST-TEXT-CHANGE";
 const SEND_MESSAGE = "SEND-MESSAGE";
@@ -22,9 +26,9 @@ let store = {
         { id: 5, name: "Valera" },
       ],
       messageArr: [
-        { id: 1, message: "Hi" , name: "Nastya"},
-        { id: 2, message: "How are you?" , name: "Sergey"},
-        { id: 3, message: "I'm fine" , name: "Nastya"},
+        { id: 1, message: "Hi", name: "Nastya" },
+        { id: 2, message: "How are you?", name: "Sergey" },
+        { id: 3, message: "I'm fine", name: "Nastya" },
         { id: 4, message: "Go home", name: "Sergey" },
         { id: 5, message: "I go", name: "Nastya" },
       ],
@@ -49,7 +53,6 @@ let store = {
         { id: 10, name: "Kirill" },
       ],
     },
-   
   },
   getState() {
     return this._state;
@@ -62,27 +65,11 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        likes: 0,
-      };
-      this._state.profilePage.postData.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === NEW_POST_TEXT_CHANGE) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      let newMessage = this._state.dialoguesPage.newMessageText;
-      this._state.dialoguesPage.messageArr.push({id:6, message:newMessage});
-      this._state.dialoguesPage.newMessageText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === NEW_MESSAGE_CHANGE) {
-      this._state.dialoguesPage.newMessageText = action.newText;
-      this._callSubscriber(this._state);
-    }
+    this._state.profilePage = reduerProfile(this._state.profilePage, action);
+    this._state.dialoguesPage = reduerDialogues(this._state.dialoguesPage,action);
+    this._state.friendPage = reduerFriends(this._state.friendPage, action);
+
+    this._callSubscriber(this._state);
   },
 };
 export const addPostActionCreator = () => {
