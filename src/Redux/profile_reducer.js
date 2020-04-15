@@ -1,7 +1,17 @@
 const ADD_POST = "ADD-POST";
 const NEW_POST_TEXT_CHANGE = "NEW-POST-TEXT-CHANGE";
 
-const reduerProfile = (state = {}, action) => {
+let initialState = {
+  postData: [
+    { id: 1, message: "Hi, how are you?", likes: 15 },
+    { id: 2, message: "Love me", likes: 10 },
+    { id: 3, message: "Я люблю Сережу", likes: 45 },
+    { id: 4, message: "Я хочу найти работу", likes: 14 },
+  ],
+  newPostText: "",
+};
+
+const reduerProfile = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
