@@ -2,10 +2,6 @@ import reduerProfile from "./profile_reducer";
 import reduerDialogues from "./dialogues_reducer";
 import reduerFriends from "./friends_reducer";
 
-const ADD_POST = "ADD-POST";
-const NEW_POST_TEXT_CHANGE = "NEW-POST-TEXT-CHANGE";
-const SEND_MESSAGE = "SEND-MESSAGE";
-const NEW_MESSAGE_CHANGE = "NEW-MESSAGE-CHANGE";
 let store = {
   _state: {
     profilePage: {
@@ -71,26 +67,6 @@ let store = {
 
     this._callSubscriber(this._state);
   },
-};
-export const addPostActionCreator = () => {
-  return {
-    type: ADD_POST,
-  };
-};
-
-export const newPostTextChangeActionCreator = (text) => {
-  return { type: NEW_POST_TEXT_CHANGE, newText: text };
-};
-
-export const sendMessageActionCreator = () => {
-  return { type: SEND_MESSAGE };
-};
-
-export const newMessageTextChangeActionCreator = (text) => {
-  return {
-    type: NEW_MESSAGE_CHANGE,
-    newText: text,
-  };
 };
 
 export default store;

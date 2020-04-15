@@ -1,4 +1,4 @@
-const reduerFriends = (state, action) => {
+const reduerFriends = (state={}, action) => {
   return state;
 };
 
