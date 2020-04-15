@@ -1,15 +1,11 @@
 import React from "react";
 import style from "./PersonDialogue.module.css";
+import DialogueItem from "./DialogueItem/DialogueItem";
 
 const PersonDialogue = (props) => {
-  return (
-    <div className={style.item}>
-      <p>Person1</p>
-      <p>Person2</p>
-      <p>Person3</p>
-      <p>Person4</p>
-    </div>
-  );
+  let dialoguesElem = props.userArr.map(user => (
+    <DialogueItem name={user.name} id={user.id} />
+  ));
+  return <div className={style.dialogue_item}>{dialoguesElem}</div>;
 };
-
 export default PersonDialogue;

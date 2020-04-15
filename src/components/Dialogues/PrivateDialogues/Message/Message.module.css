@@ -1,0 +1,33 @@
+.item {
+    width: 97%;
+    display: flex;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.name_photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name_photo p {
+    margin: 0;
+    padding: 5px;
+}
+
+.message p {
+    margin: 0;
+    padding: 10px;
+}
+
+.name_photo img {
+    width: 55px;
+    height: 53px;
+}
+
+.item:last-child {
+    margin-bottom: 100px;
+}

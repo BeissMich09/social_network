@@ -1,16 +1,31 @@
 import React from "react";
 import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import { addPostActionCreator, newPostTextChangeActionCreator } from "../../../Redux/profile_reducer";
 
-const MyPosts = () => {
-  /*   const posts = [
-    { message: "Hi, how are you?", like: "15" },
-    { message: "Love me?", like: "10" },
-    { message: "Сережа серый пидор?", like: "5" },
-    { message: "Сережа серый пидор?", like: "5" },
-    { message: "Сережа серый пидор?", like: "5" }, 
-    { message: "Сережа серый пидор?", like: "5" }
-  ]; */
+
+const MyPosts = (props) => {
+  let postsElem = props.postData.map((post) => (
+    <Post message={post.message} like={post.likes} />
+  ));
+
+  let addPost = () => {
+    let text = newPostElement.current.value;
+
+    if (text.trim() === "") {
+      newPostElement.current.value = "";
+    } else if (text !== "") {
+      props.dispatch(addPostActionCreator());
+      newPostElement.current.value = "";
+    }
+  };
+
+  let onChangePost = () => {
+    let text = newPostElement.current.value;
+    props.dispatch(newPostTextChangeActionCreator(text));
+  };
+
+  let newPostElement = React.createRef();
   return (
     <div className={classProfile.my_posts}>
       <div className="header_posts">
@@ -18,18 +33,15 @@ const MyPosts = () => {
       </div>
 
       <div className={classProfile.add_news}>
-        <textarea placeholder="Your news"></textarea>
-        <button>Send</button>
+        <textarea
+          onChange={onChangePost}
+          ref={newPostElement}
+          placeholder="Your news"
+          value={props.newPostText}
+        />
+        <button onClick={addPost}>Send</button>
       </div>
-
-      <div className={classProfile.added_news}>
-        {/*   {posts.map(post => {
-          return <Post message={post.message} like={post.like} />;
-        })} */}
-        <Post message="Hi, how are you?" like="15" />
-        <Post message="Love me" like="10" />
-        <Post message="Сережа серый пидор" like="14" />
-      </div>
+      <div className={classProfile.added_news}>{postsElem}</div>
     </div>
   );
 };
