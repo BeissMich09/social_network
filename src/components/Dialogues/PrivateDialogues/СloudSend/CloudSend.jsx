@@ -3,7 +3,7 @@ import style from "./CloudSend.module.css";
 import {
   sendMessageActionCreator,
   newMessageTextChangeActionCreator,
-} from "../../../../Redux/state";
+} from "../../../../Redux/dialogues_reducer";
 
 const CloudSend = (props) => {
   let state = props.store.getState().dialoguesPage;
