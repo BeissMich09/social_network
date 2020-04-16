@@ -1,9 +1,10 @@
 import React from "react";
 import classProfile from "./Profile.module.css";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = props => {
+  console.log('props', props)
   return (
     <div className={classProfile.content}>
       <img
@@ -11,8 +12,8 @@ const Profile = props => {
         alt=""
       />
       <ProfileInfo />
-      <MyPosts
-        newPostTextChange={props.newPostTextChange}
+      <MyPostsContainer
+        newPostTextChange={props.profilePage.newPostText}
         postData={props.profilePage.postData}
         dispatch={props.dispatch}
       />

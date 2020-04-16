@@ -1,28 +1,20 @@
 import React from "react";
 import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { addPostActionCreator, newPostTextChangeActionCreator } from "../../../Redux/profile_reducer";
-
 
 const MyPosts = (props) => {
   let postsElem = props.postData.map((post) => (
     <Post message={post.message} like={post.likes} />
   ));
 
-  let addPost = () => {
-    let text = newPostElement.current.value;
-
-    if (text.trim() === "") {
-      newPostElement.current.value = "";
-    } else if (text !== "") {
-      props.dispatch(addPostActionCreator());
-      newPostElement.current.value = "";
-    }
+  let onAddPost = () => {
+    props.addPost();
   };
 
   let onChangePost = () => {
+    console.log("props", props)
     let text = newPostElement.current.value;
-    props.dispatch(newPostTextChangeActionCreator(text));
+    props.newPostText(text);
   };
 
   let newPostElement = React.createRef();
@@ -37,9 +29,9 @@ const MyPosts = (props) => {
           onChange={onChangePost}
           ref={newPostElement}
           placeholder="Your news"
-          value={props.newPostText}
+          value={props.newPostTextChange}
         />
-        <button onClick={addPost}>Send</button>
+        <button onClick={onAddPost}>Send</button>
       </div>
       <div className={classProfile.added_news}>{postsElem}</div>
     </div>
