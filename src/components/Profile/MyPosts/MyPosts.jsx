@@ -12,11 +12,10 @@ const MyPosts = (props) => {
   };
 
   let onChangePost = () => {
-    console.log("props", props)
     let text = newPostElement.current.value;
     props.newPostText(text);
   };
-
+  
   let newPostElement = React.createRef();
   return (
     <div className={classProfile.my_posts}>

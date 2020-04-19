@@ -3,8 +3,7 @@ import classProfile from "./Profile.module.css";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = props => {
-  console.log('props', props)
+const Profile = (props) => {
   return (
     <div className={classProfile.content}>
       <img
@@ -12,11 +11,7 @@ const Profile = props => {
         alt=""
       />
       <ProfileInfo />
-      <MyPostsContainer
-        newPostTextChange={props.profilePage.newPostText}
-        postData={props.profilePage.postData}
-        dispatch={props.dispatch}
-      />
+      <MyPostsContainer store={props.store} />
     </div>
   );
 };
