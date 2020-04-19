@@ -1,22 +1,15 @@
 import React from "react";
 import style from "./CloudSend.module.css";
-import {
-  sendMessageActionCreator,
-  newMessageTextChangeActionCreator,
-} from "../../../../Redux/dialogues_reducer";
 
 const CloudSend = (props) => {
-  let state = props.store.getState().dialoguesPage;
-
-  let newMessageText = state.newMessageText;
+  let newMessageText = props.newMessageText;
 
   let sendMessage = () => {
-    props.dispatch(sendMessageActionCreator());
+    props.sendMessage();
   };
 
   let onChangeMessage = (e) => {
-    let text = e.target.value;
-    props.dispatch(newMessageTextChangeActionCreator(text));
+    props.onChangeMessage(e);
   };
 
   return (

@@ -7,11 +7,7 @@ const Dialogues = (props) => {
   return (
     <div className={style.dialogues_content}>
       <PersonDialogue userArr={props.dialoguesPage.userArr} />
-      <PrivateDialogues
-        store={props.store}
-        messageArr={props.dialoguesPage.messageArr}
-        dispatch={props.dispatch}
-      />
+      <PrivateDialogues store={props.store} />
     </div>
   );
 };

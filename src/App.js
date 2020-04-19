@@ -12,7 +12,7 @@ import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
-  console.dir(props)
+  console.dir(props);
   return (
     <div className="app-wrapper">
       <Header />
@@ -22,8 +22,7 @@ const App = (props) => {
           path="/profile"
           render={() => (
             <Profile
-              dispatch={props.dispatch}
-              profilePage={props.state.profilePage}
+              store={props.store}
             />
           )}
         />
