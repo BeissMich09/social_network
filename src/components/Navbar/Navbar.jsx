@@ -36,7 +36,7 @@ const Navbar = (props) => {
           Friends
         </NavLink>
       </div>
-      <SidebarFriends arrayBest={props.arrayBest} />
+      <SidebarFriends /*arrayBest={props.arrayBest}*/ />
     </nav>
   );
 };

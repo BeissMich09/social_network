@@ -11,7 +11,9 @@ const Profile = (props) => {
         alt=""
       />
       <ProfileInfo />
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer 
+      // store={props.store}
+       />
     </div>
   );
 };
