@@ -2,20 +2,24 @@ import React from "react";
 import style from "./Dialogues.module.css";
 import PersonDialogue from "./PersonDialogue/PersonDialogue";
 import PrivateDialogues from "./PrivateDialogues/PrivateDialogues";
-import StoreContext from "../../StoreContext";
-
-const Dialogues = () => {
+import { connect } from "react-redux";
+const Dialogues = (props) => {
+  const { userArr, messageArr } = props.dialoguesPage;
   return (
-    <StoreContext.Consumer>
-      {(store) => (
-        <div className={style.dialogues_content}>
-          { console.log('store', store.getState().dialoguesPage.userArr)}
-          <PersonDialogue userArr={store.getState().dialoguesPage.userArr} />
-          <PrivateDialogues store={store} />
-        </div>
-      )}
-    </StoreContext.Consumer>
+    <div className={style.dialogues_content}>
+      <PersonDialogue userArr={userArr} />
+      <PrivateDialogues messageArr={messageArr} />
+    </div>
   );
 };
 
-export default Dialogues;
+let mapStateToProps = (state) => {
+  return {
+    dialoguesPage: state.dialoguesPage,
+  };
+};
+
+const DialoguesConnected = connect(
+  mapStateToProps
+)(Dialogues);
+export default DialoguesConnected;
