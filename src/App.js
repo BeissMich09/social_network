@@ -12,17 +12,18 @@ import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
-  console.dir(props);
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar arrayBest={props.state.friendPage.arrayBest} />
+      <Navbar
+      //  arrayBest={props.state.friendPage.arrayBest}
+      />
       <div className="app-wrapper-content">
         <Route
           path="/profile"
           render={() => (
             <Profile
-              store={props.store}
+            // store={props.store}
             />
           )}
         />
@@ -30,9 +31,8 @@ const App = (props) => {
           path="/dialogues"
           render={() => (
             <Dialogues
-              store={props.store}
-              dialoguesPage={props.state.dialoguesPage}
-              dispatch={props.dispatch}
+            // store={props.store}
+            // dialoguesPage={props.state.dialoguesPage}
             />
           )}
         />

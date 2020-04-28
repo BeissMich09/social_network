@@ -22,13 +22,16 @@ let initialState = {
 const reduerDialogues = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      let newMessage = state.newMessageText;
-      state.messageArr.push({ id: 6, message: newMessage });
-      state.newMessageText = "";
-      return state;
+      let newNewMessage = {
+        id: 6,
+        message: state.newMessageText,
+      };
+      return Object.assign({}, state, {
+        messageArr: state.messageArr.concat(newNewMessage),
+        newMessageText: "",
+      });
     case NEW_MESSAGE_CHANGE:
-      state.newMessageText = action.newText;
-      return state;
+      return Object.assign({}, state, { newMessageText: action.newText });
     default:
       return state;
   }

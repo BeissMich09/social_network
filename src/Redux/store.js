@@ -59,8 +59,9 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-
+  
   dispatch(action) {
+    console.log("блаблабла")
     this._state.profilePage = reduerProfile(this._state.profilePage, action);
     this._state.dialoguesPage = reduerDialogues(this._state.dialoguesPage,action);
     this._state.friendPage = reduerFriends(this._state.friendPage, action);

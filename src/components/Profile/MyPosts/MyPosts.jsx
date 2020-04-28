@@ -15,14 +15,13 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
     props.newPostText(text);
   };
-  
   let newPostElement = React.createRef();
   return (
     <div className={classProfile.my_posts}>
       <div className="header_posts">
         <h4>My Posts</h4>
       </div>
-
+{console.log('props', props)}
       <div className={classProfile.add_news}>
         <textarea
           onChange={onChangePost}
