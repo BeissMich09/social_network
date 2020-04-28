@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import {
   addPostActionCreator,
   newPostTextChangeActionCreator,
@@ -32,6 +32,7 @@ import { connect } from "react-redux";
 // };
 
 let mapStateToProps = (state) => {
+  console.log('state',state)
   return {
     newPostTextChange: state.profilePage.newPostText,
     postData: state.profilePage.postData,

@@ -11,7 +11,7 @@ let initialState = {
   newPostText: "",
 };
 
-const reduerProfile = (state = initialState, action) => {
+const reducerProfile = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
@@ -19,12 +19,12 @@ const reduerProfile = (state = initialState, action) => {
         message: state.newPostText,
         likes: 0,
       };
-      state.postData.push(newPost);
-      state.newPostText = "";
-      return state;
+      return Object.assign({}, state, {
+        postData:  state.postData.concat(newPost),
+        newPostText: "",
+      });
     case NEW_POST_TEXT_CHANGE:
-      state.newPostText = action.newText;
-      return state;
+      return Object.assign({}, state, { newPostText: action.newText });
     default:
       return state;
   }
@@ -38,4 +38,4 @@ export const addPostActionCreator = () => {
 export const newPostTextChangeActionCreator = (text) => {
   return { type: NEW_POST_TEXT_CHANGE, newText: text };
 };
-export default reduerProfile;
+export default reducerProfile;
