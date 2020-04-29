@@ -4,7 +4,7 @@ import DialogueItem from "./DialogueItem/DialogueItem";
 
 const PersonDialogue = (props) => {
   let dialoguesElem = props.userArr.map(user => (
-    <DialogueItem name={user.name} id={user.id} />
+    <DialogueItem name={user.name} id={user.id} key = {user.id} />
   ));
   return <div className={style.dialogue_item}>{dialoguesElem}</div>;
 };

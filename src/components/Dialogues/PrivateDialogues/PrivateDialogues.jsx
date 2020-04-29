@@ -6,7 +6,7 @@ import CloudSendContainer from "./СloudSend/CloudSendContainer";
 const PrivateDialogues = (props) => {
 
   let messageElem = props.messageArr.map((message) => (
-    <Message name={"Nastya"} message={message.message} />
+    <Message name={"Nastya"} message={message.message} id = {message.id} key = {message.id} />
   ));
   return (
     <div className={style.item}>
