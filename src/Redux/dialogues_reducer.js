@@ -10,11 +10,11 @@ let initialState = {
     { id: 5, name: "Valera" },
   ],
   messageArr: [
-    { id: 1, message: "Hi", name: "Nastya" },
-    { id: 2, message: "How are you?", name: "Sergey" },
-    { id: 3, message: "I'm fine", name: "Nastya" },
-    { id: 4, message: "Go home", name: "Sergey" },
-    { id: 5, message: "I go", name: "Nastya" },
+    { id: 1, message: "Hi"},
+    { id: 2, message: "How are you?"},
+    { id: 3, message: "I'm fine"},
+    { id: 4, message: "Go home"},
+    { id: 5, message: "I go"},
   ],
   newMessageText: "",
 };
