@@ -10,6 +10,7 @@ import Setting from "./components/Setting/Setting";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
+import Users from "./components/Users/Users";
 
 const App = (props) => {
   return (
@@ -19,26 +20,12 @@ const App = (props) => {
       //  arrayBest={props.state.friendPage.arrayBest}
       />
       <div className="app-wrapper-content">
-        <Route
-          path="/profile"
-          render={() => (
-            <Profile
-            // store={props.store}
-            />
-          )}
-        />
-        <Route
-          path="/dialogues"
-          render={() => (
-            <Dialogues
-            // store={props.store}
-            // dialoguesPage={props.state.dialoguesPage}
-            />
-          )}
-        />
+        <Route path="/profile" render={() => <Profile />} />
+        <Route path="/dialogues" render={() => <Dialogues />} />
         <Route path="/music" render={() => <Music />} />
         <Route path="/news" render={() => <News />} />
         <Route path="/setting" render={() => <Setting />} />
+        <Route path="/users" render={() => <Users />} />
         <Route
           path="/friends"
           render={() => (

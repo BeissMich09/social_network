@@ -36,6 +36,11 @@ const Navbar = (props) => {
           Friends
         </NavLink>
       </div>
+      <div className={style.item}>
+        <NavLink activeClassName={style.activeLink} to="/users">
+          Users
+        </NavLink>
+      </div>
       <SidebarFriends /*arrayBest={props.arrayBest}*/ />
     </nav>
   );
