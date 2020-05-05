@@ -4,34 +4,38 @@ const SET_USERS = "SET_USERS";
 
 let initialState = {
   users: [
-    {
-      id: 1,
-      followed: true,
-      fullName: { name: "Sergey", surname: "Tsivilev" },
-      status: "I'm fine!",
-      location: { city: "Moscow", country: "Russia" },
-    },
-    {
-      id: 2,
-      followed: false,
-      fullName: { name: "Fedya", surname: "Kopyrin" },
-      status: "I'm dreaming.",
-      location: { city: "Moscow", country: "Russia" },
-    },
-    {
-      id: 3,
-      followed: true,
-      fullName: { name: "Nastya", surname: "Nazarova" },
-      status: "Anderer Fehler sind gute Lehrer.",
-      location: { city: "Moscow", country: "Russia" },
-    },
-    {
-      id: 4,
-      followed: false,
-      fullName: { name: "Valery", surname: "Nazarov" },
-      status: "Go to home.",
-      location: { city: "Kaliningrad", country: "Russia" },
-    },
+    // {
+    //   id: 1,
+    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
+    //   followed: true,
+    //   fullName: { name: "Sergey", surname: "Tsivilev" },
+    //   status: "I'm fine!",
+    //   location: { city: "Moscow", country: "Russia" },
+    // },
+    // {
+    //   id: 2,
+    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
+    //   followed: false,
+    //   fullName: { name: "Fedya", surname: "Kopyrin" },
+    //   status: "I'm dreaming.",
+    //   location: { city: "Moscow", country: "Russia" },
+    // },
+    // {
+    //   id: 3,
+    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
+    //   followed: true,
+    //   fullName: { name: "Nastya", surname: "Nazarova" },
+    //   status: "Anderer Fehler sind gute Lehrer.",
+    //   location: { city: "Moscow", country: "Russia" },
+    // },
+    // {
+    //   id: 4,
+    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
+    //   followed: false,
+    //   fullName: { name: "Valery", surname: "Nazarov" },
+    //   status: "Go to home.",
+    //   location: { city: "Kaliningrad", country: "Russia" },
+    // },
   ],
 };
 
@@ -40,29 +44,30 @@ const reducerUsers = (state = initialState, action) => {
     case FOLLOW:
       return {
         ...state,
-        users: state.users.map((u) => {
-          if (u.id === action.userId) {
-            return { ...u, followed: true };
+        users: state.users.map((user) => {
+          console.log("user.id", user.id);
+          console.log("action.userId", typeof action.userId);
+          if (user.id === action.userId) {
+            return { ...user, followed: true };
           }
-          return u;
+          return user;
         }),
       };
-
     case UNFOLLOW:
       return {
         ...state,
-        users: state.users.map((u) => {
-          if (u.id === action.userId) {
-            return { ...u, followed: false };
+        users: state.users.map((user) => {
+          if (user.id === action.userId) {
+            return { ...user, followed: false };
           }
-          return u;
+          return user;
         }),
       };
-case SET_USERS:
-    return{
+    case SET_USERS:
+      return {
         ...state,
-        users: [...state.users, ...action.users ]
-    }
+        users: [...state.users, ...action.users],
+      };
     default:
       return state;
   }
@@ -70,12 +75,12 @@ case SET_USERS:
 export const followAC = (userId) => {
   return {
     type: FOLLOW,
-    userId: { userId },
+    userId,
   };
 };
 
 export const unfollowAC = (userId) => {
-  return { type: UNFOLLOW, userId: { userId } };
+  return { type: UNFOLLOW, userId };
 };
 export const setUsersAC = (users) => {
   return { type: SET_USERS, users };
