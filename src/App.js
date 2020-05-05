@@ -10,7 +10,7 @@ import Setting from "./components/Setting/Setting";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
-import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
   return (
@@ -25,7 +25,7 @@ const App = (props) => {
         <Route path="/music" render={() => <Music />} />
         <Route path="/news" render={() => <News />} />
         <Route path="/setting" render={() => <Setting />} />
-        <Route path="/users" render={() => <Users />} />
+        <Route path="/users" render={() => <UsersContainer />} />
         <Route
           path="/friends"
           render={() => (

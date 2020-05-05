@@ -30,6 +30,7 @@ const reducerProfile = (state = initialState, action) => {
   }
 };
 export const addPostActionCreator = () => {
+  
   return {
     type: ADD_POST,
   };
