@@ -1,42 +1,14 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 
 let initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
-    //   followed: true,
-    //   fullName: { name: "Sergey", surname: "Tsivilev" },
-    //   status: "I'm fine!",
-    //   location: { city: "Moscow", country: "Russia" },
-    // },
-    // {
-    //   id: 2,
-    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
-    //   followed: false,
-    //   fullName: { name: "Fedya", surname: "Kopyrin" },
-    //   status: "I'm dreaming.",
-    //   location: { city: "Moscow", country: "Russia" },
-    // },
-    // {
-    //   id: 3,
-    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
-    //   followed: true,
-    //   fullName: { name: "Nastya", surname: "Nazarova" },
-    //   status: "Anderer Fehler sind gute Lehrer.",
-    //   location: { city: "Moscow", country: "Russia" },
-    // },
-    // {
-    //   id: 4,
-    //   photoUrl: "https://www.freeiconspng.com/uploads/man-icon-png-29.png",
-    //   followed: false,
-    //   fullName: { name: "Valery", surname: "Nazarov" },
-    //   status: "Go to home.",
-    //   location: { city: "Kaliningrad", country: "Russia" },
-    // },
-  ],
+  users: [],
+  pageSize: 5,
+  totalUsersCount: 0,
+  currentPage: 2,
 };
 
 const reducerUsers = (state = initialState, action) => {
@@ -66,8 +38,18 @@ const reducerUsers = (state = initialState, action) => {
     case SET_USERS:
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users:  action.users,
       };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage,
+      };
+      case SET_TOTAL_USERS_COUNT:
+        return {
+          ...state,
+          totalUsersCount: action.totalUsersCount,
+        };
     default:
       return state;
   }
@@ -79,6 +61,14 @@ export const followAC = (userId) => {
   };
 };
 
+export const setUsersTotalCountAC=(totalUsersCount)=>({
+  type:SET_TOTAL_USERS_COUNT, totalUsersCount,
+})
+
+export const setCurrentPageAC = (currentPage) => ({
+  type: SET_CURRENT_PAGE,
+  currentPage,
+});
 export const unfollowAC = (userId) => {
   return { type: UNFOLLOW, userId };
 };
