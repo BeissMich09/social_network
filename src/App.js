@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import Dialogues from "./components/Dialogues/Dialogues";
 import { Route } from "react-router-dom";
 import Setting from "./components/Setting/Setting";
@@ -20,7 +20,7 @@ const App = (props) => {
       //  arrayBest={props.state.friendPage.arrayBest}
       />
       <div className="app-wrapper-content">
-        <Route path="/profile" render={() => <Profile />} />
+        <Route path="/profile" render={() => <ProfileContainer />} />
         <Route path="/dialogues" render={() => <Dialogues />} />
         <Route path="/music" render={() => <Music />} />
         <Route path="/news" render={() => <News />} />
