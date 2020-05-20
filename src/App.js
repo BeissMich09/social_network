@@ -16,11 +16,9 @@ const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar
-      //  arrayBest={props.state.friendPage.arrayBest}
-      />
+      <Navbar />
       <div className="app-wrapper-content">
-        <Route path="/profile" render={() => <ProfileContainer />} />
+        <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route path="/dialogues" render={() => <Dialogues />} />
         <Route path="/music" render={() => <Music />} />
         <Route path="/news" render={() => <News />} />
