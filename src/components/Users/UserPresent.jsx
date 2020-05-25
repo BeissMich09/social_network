@@ -39,14 +39,16 @@ let UsersPresent = (props) => {
             </NavLink>
             {user.followed ? (
               <button
+                disabled={props.followingInProgress.some(id=>id===user.id)}
                 onClick={() => {
+                  props.toggleIsFollowingProgress(true);
                   axios
                     .delete(
                       `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
                       {
                         withCredentials: true,
                         headers: {
-                          API_KEY: "2207a5d4-08e2-4a3b-98af-c3bbaf315c7d",
+                          "API-KEY": "2207a5d4-08e2-4a3b-98af-c3bbaf315c7d",
                         },
                       }
                     )
@@ -54,6 +56,7 @@ let UsersPresent = (props) => {
                       if (response.data.resultCode === 0) {
                         props.unfollow(user.id);
                       }
+                      props.toggleIsFollowingProgress(false);
                     });
                 }}
               >
@@ -61,7 +64,9 @@ let UsersPresent = (props) => {
               </button>
             ) : (
               <button
+                disabled={props.followingInProgress.some(id=>id===user.id)}
                 onClick={() => {
+                  props.toggleIsFollowingProgress(true);
                   axios
                     .post(
                       `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
@@ -69,7 +74,7 @@ let UsersPresent = (props) => {
                       {
                         withCredentials: true,
                         headers: {
-                          API_KEY: "2207a5d4-08e2-4a3b-98af-c3bbaf315c7d",
+                          "API-KEY": "2207a5d4-08e2-4a3b-98af-c3bbaf315c7d",
                         },
                       }
                     )
@@ -77,6 +82,7 @@ let UsersPresent = (props) => {
                       if (response.data.resultCode === 0) {
                         props.follow(user.id);
                       }
+                      props.toggleIsFollowingProgress(false);
                     });
                 }}
               >
