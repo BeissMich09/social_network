@@ -70,7 +70,7 @@ const reducerUsers = (state = initialState, action) => {
       return state;
   }
 };
-export const follow = (userId) => {
+export const followSuccess = (userId) => {
   return {
     type: FOLLOW,
     userId,
@@ -86,7 +86,7 @@ export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
 });
-export const unfollow = (userId) => {
+export const unfollowSuccess = (userId) => {
   return { type: UNFOLLOW, userId };
 };
 export const setUsers = (users) => {
@@ -109,6 +109,30 @@ export const getUsers = (currentPage, pageSize) => {
       dispatch(setIsFetching(false));
       dispatch(setUsers(data.items));
       dispatch(setTotalUsersCount(data.totalCount));
+    });
+  };
+};
+
+export const follow = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleIsFollowingProgress(true, userId));
+    userAPI.follow(userId).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(followSuccess(userId));
+      }
+      dispatch(toggleIsFollowingProgress(false, userId));
+    });
+  };
+};
+
+export const unfollow = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleIsFollowingProgress(true, userId));
+    userAPI.unfollow(userId).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(unfollowSuccess(userId));
+      }
+      dispatch(toggleIsFollowingProgress(false, userId));
     });
   };
 };
