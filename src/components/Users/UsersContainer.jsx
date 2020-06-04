@@ -20,20 +20,24 @@ class UsersAPIComponent extends React.Component {
   };
 
   render() {
+    console.log("isFetching", this.props);
     return (
       <>
-        {this.props.isFetching ? <Preloader /> : null}
-        <UserPresent
-          totalUsersCount={this.props.totalUsersCount}
-          onPageChanged={this.onPageChanged}
-          pageSize={this.props.pageSize}
-          currentPage={this.props.currentPage}
-          users={this.props.users}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
-          followingInProgress={this.props.followingInProgress}
-        />
+        {this.props.isFetching ? (
+          <Preloader />
+        ) : (
+          <UserPresent
+            totalUsersCount={this.props.totalUsersCount}
+            onPageChanged={this.onPageChanged}
+            pageSize={this.props.pageSize}
+            currentPage={this.props.currentPage}
+            users={this.props.users}
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+            toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
+            followingInProgress={this.props.followingInProgress}
+          />
+        )}
       </>
     );
   }
@@ -46,6 +50,7 @@ let mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     followingInProgress: state.usersPage.followingInProgress,
+    isFetching: state.usersPage.isFetching,
   };
 };
 
