@@ -1,3 +1,5 @@
+import { userAPI } from "../api/api";
+
 const ADD_POST = "ADD-POST";
 const NEW_POST_TEXT_CHANGE = "NEW-POST-TEXT-CHANGE";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -45,7 +47,11 @@ export const setUserProfile = (profile) => {
     profile,
   };
 };
-
+export const getUserProfile = (userId) => (dispatch) => {
+  userAPI.getProfile(userId).then((response) => {
+    dispatch(setUserProfile(response.data));
+  });
+};
 export const newPostTextChangeActionCreator = (text) => {
   return { type: NEW_POST_TEXT_CHANGE, newText: text };
 };
