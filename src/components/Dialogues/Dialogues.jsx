@@ -2,8 +2,13 @@ import React from "react";
 import style from "./Dialogues.module.css";
 import PersonDialogue from "./PersonDialogue/PersonDialogue";
 import PrivateDialogues from "./PrivateDialogues/PrivateDialogues";
-import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+// import { connect } from "react-redux";
+
 const Dialogues = (props) => {
+  if (!props.isAuth) {
+    return <Redirect to="/login" />;
+  }
   const { userArr, messageArr } = props.dialoguesPage;
   return (
     <div className={style.dialogues_content}>
@@ -13,13 +18,12 @@ const Dialogues = (props) => {
   );
 };
 
-let mapStateToProps = (state) => {
-  return {
-    dialoguesPage: state.dialoguesPage,
-  };
-};
+// let mapStateToProps = (state) => {
+//   return {
+//     dialoguesPage: state.dialoguesPage,
+//     isAuth: state.auth.isAuth,
+//   };
+// };
 
-const DialoguesConnected = connect(
-  mapStateToProps
-)(Dialogues);
-export default DialoguesConnected;
+// const DialoguesConnected = connect(mapStateToProps)(Dialogues);
+export default Dialogues;
