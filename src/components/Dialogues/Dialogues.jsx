@@ -3,7 +3,6 @@ import style from "./Dialogues.module.css";
 import PersonDialogue from "./PersonDialogue/PersonDialogue";
 import PrivateDialogues from "./PrivateDialogues/PrivateDialogues";
 import { Redirect } from "react-router-dom";
-// import { connect } from "react-redux";
 
 const Dialogues = (props) => {
   if (!props.isAuth) {
@@ -18,12 +17,4 @@ const Dialogues = (props) => {
   );
 };
 
-// let mapStateToProps = (state) => {
-//   return {
-//     dialoguesPage: state.dialoguesPage,
-//     isAuth: state.auth.isAuth,
-//   };
-// };
-
-// const DialoguesConnected = connect(mapStateToProps)(Dialogues);
 export default Dialogues;
