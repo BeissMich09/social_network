@@ -2,12 +2,12 @@ import React from "react";
 import style from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "./../../../assets/img/user-avatar.png";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
-  console.log("props....", props);
   return (
     <div className={style.profile}>
       <div className={style.photo}>
@@ -20,6 +20,7 @@ const ProfileInfo = (props) => {
           alt=""
         />
       </div>
+      <ProfileStatus status={"хай, ёпта"} />
       <div className={style.info}>
         <h3>Information</h3>
         <p>Full Name: {props.profile.fullName}</p>
