@@ -2,10 +2,13 @@ import React from "react";
 import ReduxLoginForm from "./LoginForm";
 
 const Login = (props) => {
+  const onSubmit = (formData) => {
+    console.log(formData);
+  };
   return (
     <div>
       <h1>Login</h1>
-      <ReduxLoginForm />
+      <ReduxLoginForm onSubmit={onSubmit} />
     </div>
   );
 };
