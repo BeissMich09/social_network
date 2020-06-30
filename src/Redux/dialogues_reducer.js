@@ -19,7 +19,7 @@ let initialState = {
   newMessageText: "",
 };
 
-const reduerDialogues = (state = initialState, action) => {
+const reducerDialogues = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
       let newNewMessage = {
@@ -47,4 +47,4 @@ export const newMessageTextChangeActionCreator = (text) => {
     newText: text,
   };
 };
-export default reduerDialogues;
+export default reducerDialogues;
