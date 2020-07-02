@@ -1,39 +1,18 @@
-// import React from "react";
+import React from "react";
 import {
   sendMessageActionCreator,
   newMessageTextChangeActionCreator,
 } from "../../../../Redux/dialogues_reducer";
 import CloudSend from "./CloudSend";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
-// const CloudSendContainer = (props) => {ттусе
-//   return (
-//     <StoreContext.Consumer>
-//       {(store) => {
-//         let state = store.getState();
+const CloudSendContainer = (props) => {
+  return <CloudSend onSubmit={newMessage} />;
+};
 
-//         let newMessageText = state.dialoguesPage.newMessageText;
-
-//         let sendMessage = () => {
-//           store.dispatch(sendMessageActionCreator());
-//         };
-
-//         let onChangeMessage = (e) => {
-//           let text = e.target.value;
-//           store.dispatch(newMessageTextChangeActionCreator(text));
-//         };
-
-//         return (
-//           <CloudSend
-//             newMessageText={newMessageText}
-//             onChangeMessage={onChangeMessage}
-//             sendMessage={sendMessage}
-//           />
-//         );
-//       }}
-//     </StoreContext.Consumer>
-//   );
-// };
+let newMessage = (values) => {
+  alert(values.newMessage);
+};
 
 let mapNewMessageText = (state) => {
   return {
@@ -52,9 +31,4 @@ let mapStateToProps = (dispatch) => {
   };
 };
 
-const CloudSendContainer = connect(
-  mapNewMessageText,
-  mapStateToProps
-)(CloudSend);
-
-export default CloudSendContainer;
+export default connect(mapNewMessageText, mapStateToProps)(CloudSendContainer);
