@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./CloudSend.module.css";
+import { Field, reduxForm } from "redux-form";
 
 const CloudSend = (props) => {
   let newMessageText = props.newMessageText;
@@ -13,15 +14,15 @@ const CloudSend = (props) => {
   };
 
   return (
-    <div className={style.item}>
-      <textarea
+    <form onSubmit={props.handleSubmit} className={style.item}>
+      <Field
+        name="newMessage"
+        component="textarea"
         value={newMessageText}
-        onChange={onChangeMessage}
         placeholder="Введите ваше сообщение"
-      ></textarea>
-      <button onClick={sendMessage}>Send</button>
-    </div>
+      ></Field>
+      <button>Send</button>
+    </form>
   );
 };
-
-export default CloudSend;
+export default reduxForm({ form: "message" })(CloudSend);
