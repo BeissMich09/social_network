@@ -1,17 +1,13 @@
 import React from "react";
-import {
-  sendMessageActionCreator,
-  newMessageTextChangeActionCreator,
-} from "../../../../Redux/dialogues_reducer";
+import { sendMessageActionCreator } from "../../../../Redux/dialogues_reducer";
 import CloudSend from "./CloudSend";
 import { connect } from "react-redux";
 
 const CloudSendContainer = (props) => {
+  let newMessage = (values) => {
+    props.sendMessage(values.newMessage);
+  };
   return <CloudSend onSubmit={newMessage} />;
-};
-
-let newMessage = (values) => {
-  alert(values.newMessage);
 };
 
 let mapNewMessageText = (state) => {
@@ -21,12 +17,8 @@ let mapNewMessageText = (state) => {
 };
 let mapStateToProps = (dispatch) => {
   return {
-    onChangeMessage: (e) => {
-      let text = e.target.value;
-      dispatch(newMessageTextChangeActionCreator(text));
-    },
-    sendMessage: () => {
-      dispatch(sendMessageActionCreator());
+    sendMessage: (newMessage) => {
+      dispatch(sendMessageActionCreator(newMessage));
     },
   };
 };
