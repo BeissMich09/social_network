@@ -1,39 +1,40 @@
 import React from "react";
 import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import { Field, reduxForm } from "redux-form";
 
 const MyPosts = (props) => {
   let postsElem = props.postData.map((post) => (
     <Post message={post.message} like={post.likes} id={post.id} key={post.id} />
   ));
 
-  let onAddPost = () => {
-    props.addPost();
+  let onAddPost = (values) => {
+    props.addPost(values.newPost);
   };
 
-  let onChangePost = () => {
-    let text = newPostElement.current.value;
-    props.newPostText(text);
-  };
-  let newPostElement = React.createRef();
   return (
     <div className={classProfile.my_posts}>
       <div className="header_posts">
         <h4>My Posts</h4>
       </div>
-{console.log('props', props)}
-      <div className={classProfile.add_news}>
-        <textarea
-          onChange={onChangePost}
-          ref={newPostElement}
-          placeholder="Your news"
-          value={props.newPostTextChange}
-        />
-        <button onClick={onAddPost}>Send</button>
-      </div>
+      <NewPostForm onSubmit={onAddPost} />
       <div className={classProfile.added_news}>{postsElem}</div>
     </div>
   );
 };
 
+let NewPostForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit} className={classProfile.add_news}>
+      <Field
+        name="newPost"
+        component="textarea"
+        placeholder="Your news"
+        value={props.newPostTextChange}
+      />
+      <button>Send</button>
+    </form>
+  );
+};
+NewPostForm = reduxForm({ form: "post" })(NewPostForm);
 export default MyPosts;

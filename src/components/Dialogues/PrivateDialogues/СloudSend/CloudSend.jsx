@@ -5,14 +5,6 @@ import { Field, reduxForm } from "redux-form";
 const CloudSend = (props) => {
   let newMessageText = props.newMessageText;
 
-  let sendMessage = () => {
-    props.sendMessage();
-  };
-
-  let onChangeMessage = (e) => {
-    props.onChangeMessage(e);
-  };
-
   return (
     <form onSubmit={props.handleSubmit} className={style.item}>
       <Field
