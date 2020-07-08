@@ -5,6 +5,7 @@ import {
   requiredField,
   maxLengthCretor,
 } from "../../../utils/validators/validators";
+import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const maxLength30 = maxLengthCretor(30);
 
@@ -14,7 +15,7 @@ let NewPostForm = (props) => {
       <Field
         validate={[requiredField, maxLength30]}
         name="newPost"
-        component="textarea"
+        component={Textarea}
         placeholder="Your news"
       />
       <button>Send</button>

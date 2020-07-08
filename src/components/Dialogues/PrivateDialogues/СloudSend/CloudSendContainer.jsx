@@ -1,6 +1,6 @@
 import React from "react";
 import { sendMessageActionCreator } from "../../../../Redux/dialogues_reducer";
-import CloudSend from "./CloudSend";
+import CloudSend from "./CloudSendForm";
 import { connect } from "react-redux";
 
 const CloudSendContainer = (props) => {
