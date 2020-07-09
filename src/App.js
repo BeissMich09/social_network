@@ -10,8 +10,8 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
 import UsersContainer from "./components/Users/UsersContainer";
-import Login from "./components/Login/Login";
 import DialoguesConnected from "./components/Dialogues/DialoguesContainer";
+import LoginContainer from "./components/Login/LoginContainer";
 
 const App = (props) => {
   return (
@@ -31,7 +31,7 @@ const App = (props) => {
             <Friends allFriend={props.state.friendPage.allFriend} />
           )}
         />
-        <Route path="/login" render={() => <Login />} />
+        <Route path="/login" render={() => <LoginContainer />} />
       </div>
     </div>
   );
