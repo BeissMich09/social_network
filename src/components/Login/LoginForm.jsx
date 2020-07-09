@@ -15,8 +15,8 @@ const LoginForm = (props) => {
         <Field
           component={Input}
           validate={[requiredField, maxLength20]}
-          name="login"
-          placeholder="Login"
+          name="email"
+          placeholder="Email"
         />
       </div>
       <div>
@@ -25,6 +25,7 @@ const LoginForm = (props) => {
           validate={[requiredField]}
           name="password"
           placeholder="Password"
+          type="password"
         />
       </div>
       <div>
