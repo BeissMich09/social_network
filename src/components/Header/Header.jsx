@@ -8,7 +8,11 @@ const Header = (props) => {
       <img src="https://cdn.onlinewebfonts.com/svg/img_2401.png" alt="" />
 
       <div className={style.loginBlock}>
-        {props.isAuth ? props.login : <NavLink to={"/login"}>Login</NavLink>}
+        {props.isAuth ? (
+          <div> {props.login}- <button onClick={props.logout}>Logout</button> </div>
+        ) : (
+          <NavLink to={"/login"}>Login</NavLink>
+        )}
       </div>
     </header>
   );

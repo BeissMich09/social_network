@@ -15,7 +15,7 @@ let mapNewMessageText = (state) => {
     newMessageText: state.dialoguesPage.newMessageText,
   };
 };
-let mapStateToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: (newMessage) => {
       dispatch(sendMessageActionCreator(newMessage));
@@ -23,4 +23,4 @@ let mapStateToProps = (dispatch) => {
   };
 };
 
-export default connect(mapNewMessageText, mapStateToProps)(CloudSendContainer);
+export default connect(mapNewMessageText, mapDispatchToProps)(CloudSendContainer);
