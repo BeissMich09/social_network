@@ -4,7 +4,11 @@ import { login } from "../../Redux/auth-reducer";
 import React from "react";
 
 const LoginContainer = (props) => {
-  return <Login login={props.login} />;
+  return <Login isAuth={props.isAuth} login={props.login} />;
 };
 
-export default connect(null, { login })(LoginContainer);
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps, { login })(LoginContainer);
