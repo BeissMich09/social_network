@@ -1,5 +1,6 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import style from "./../common/FormsControls/FormsControls.module.css";
 import { Input } from "../common/FormsControls/FormsControls";
 import {
   requiredField,
@@ -34,6 +35,9 @@ const LoginForm = (props) => {
           remember me
         </label>
       </div>
+      {props.error && (
+        <div className={style.formSummaryError}>{props.error}</div>
+      )}
       <div>
         <button>Login</button>
       </div>
