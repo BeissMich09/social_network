@@ -42,7 +42,6 @@ export const login = (email, password, rememberMe) => (dispatch) => {
     if (response.data.resultCode === 0) {
       dispatch(getAuthUserData());
     } else {
-      console.log(response.data)
       let message =
         response.data.messages.length > 0
           ? response.data.messages[0]
@@ -54,8 +53,10 @@ export const login = (email, password, rememberMe) => (dispatch) => {
 
 export const logout = () => (dispatch) => {
   authAPI.logout().then((response) => {
+  
     if (response.data.resultCode === 0) {
-      dispatch(getAuthUserData(null, null, null, true));
+      console.log("res", response);
+      dispatch(setUserData(null, null, null, false));
     }
   });
 };
