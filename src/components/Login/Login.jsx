@@ -1,8 +1,6 @@
 import React from "react";
 import ReduxLoginForm from "./LoginForm";
 import { Redirect } from "react-router-dom";
-// import { connect } from "react-redux";
-// import { login } from "../../Redux/auth-reducer";
 
 const Login = (props) => {
   const onSubmit = (formData) => {
