@@ -26,7 +26,7 @@ const ProfileInfo = (props) => {
         <p>Full Name: {props.profile.fullName}</p>
         <p>Facebook: {props.profile.contacts.facebook}</p>
         <p>
-          Job:
+          Job: 
           {props.profile.lookingForAJob ? (
             <img src="/work_icon.svg" alt="Ищу" />
           ) : (
