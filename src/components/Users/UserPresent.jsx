@@ -14,21 +14,21 @@ let UsersPresent = (props) => {
   return (
     <div className={style.item}>
       <div>
-        {pages.map((p) => {
+        {pages.map((page) => {
           return (
             <span
-              className={props.currentPage === p && style.selectedPage}
+              className={props.currentPage === page && style.selectedPage}
               onClick={(e) => {
-                props.onPageChanged(p);
+                props.onPageChanged(page);
               }}
             >
-              {p}
+              {page}
             </span>
           );
         })}
       </div>
       {props.users.map((user) => (
-        <div key={user.id}>
+        <div className={style.user} key={user.id}>
           <div>
             <NavLink to={`/profile/` + user.id}>
               <img

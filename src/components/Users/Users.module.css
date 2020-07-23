@@ -6,3 +6,23 @@
 .selectedPage {
     font-weight: bold;
 }
+
+.user {
+    border: solid 1px rgb(113, 208, 255);
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.user button {
+    height: 50px;
+    border-radius: 5px;
+    border: solid 2px rgb(113, 208, 255);
+    background-color: rgb(200, 237, 255);
+    cursor: pointer;
+    margin-left: 100px;
+}

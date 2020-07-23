@@ -1,9 +1,10 @@
 .dialogues_content {
     display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 
 .item {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     width: 35%;
 }

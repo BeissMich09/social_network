@@ -1,13 +1,10 @@
 .dialogue_item {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     width: 25%;
-}
-
-.item {
-    border: solid black 1px;
-}
-
-.item p {
-    margin: 0;
-    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
