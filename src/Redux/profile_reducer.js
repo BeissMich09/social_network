@@ -8,8 +8,7 @@ let initialState = {
   postData: [
     { id: 1, message: "Hi, how are you?", likes: 15 },
     { id: 2, message: "Love me", likes: 10 },
-    { id: 3, message: "Я люблю Сережу", likes: 45 },
-    { id: 4, message: "Я хочу найти работу", likes: 14 },
+    { id: 3, message: "Я хочу найти работу", likes: 14 },
   ],
   profile: null,
   status: "",
