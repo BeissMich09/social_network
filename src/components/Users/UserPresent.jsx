@@ -2,6 +2,8 @@ import React from "react";
 import userPhoto from "../../assets/img/user-avatar.png";
 import style from "./Users.module.css";
 import { NavLink } from "react-router-dom";
+import Paginator from "../common/Paginator/Paginator";
+// import Pagination from "react-js-pagination";
 
 let UsersPresent = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -13,7 +15,13 @@ let UsersPresent = (props) => {
 
   return (
     <div className={style.item}>
-      <div>
+      <Paginator
+        totalItemsCount={props.totalUsersCount}
+        pageSize={props.pageSize}
+        currentPage={props.currentPage}
+        onPageChange={props.onPageChanged}
+      />
+      {/* <div>
         {pages.map((page) => {
           return (
             <span
@@ -26,7 +34,7 @@ let UsersPresent = (props) => {
             </span>
           );
         })}
-      </div>
+      </div> */}
       {props.users.map((user) => (
         <div className={style.user} key={user.id}>
           <div>
@@ -54,7 +62,8 @@ let UsersPresent = (props) => {
                 )}
                 onClick={() => {
                   props.follow(user.id);
-                }}>
+                }}
+              >
                 Follow
               </button>
             )}
