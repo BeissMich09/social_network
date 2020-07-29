@@ -22,8 +22,6 @@ class UsersAPIComponent extends React.Component {
   };
 
   render() {
-    console.log("isFetching", this.props);
-
     return (
       <>
         <Paginator

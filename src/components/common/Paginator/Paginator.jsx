@@ -37,7 +37,6 @@ let Paginator = ({
           (p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber
         )
         .map((p) => {
-          console.log('currentPage === p',currentPage === p)
           return (
             <span
               className={cn(
