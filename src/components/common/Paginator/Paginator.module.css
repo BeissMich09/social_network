@@ -1,13 +1,29 @@
 .paginator {
     margin: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .pageNumber {
+    display: block;
     padding: 2px;
-    border: solid black 1px;
+    border: solid 1px rgb(113, 208, 255);
+    border-radius: 3px;
+    cursor: pointer;
+    width: 35px;
+    text-align: center;
+    margin-right: 2px;
+    margin-left: 2px;
 }
 
 .pageNumber.selectedPage {
-    font-weight: bold;
-    border-color: black;
+    border-color: rgb(91, 200, 255);
+    background-color: rgb(91, 200, 255);
+}
+
+.button {
+    border: solid 1px rgb(113, 208, 255);
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
 }
