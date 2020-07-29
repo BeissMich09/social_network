@@ -24,7 +24,7 @@ let Paginator = ({
   return (
     <div className={style.paginator}>
       {portionNumber > 1 && (
-        <button
+        <button className={style.button}
           onClick={() => {
             setPortionNumber(portionNumber - 1);
           }}
@@ -56,7 +56,7 @@ let Paginator = ({
           );
         })}
       {portionCount > portionNumber && (
-        <button
+        <button className={style.button}
           onClick={() => {
             setPortionNumber(portionNumber + 1);
           }}

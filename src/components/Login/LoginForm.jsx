@@ -11,7 +11,7 @@ const maxLength20 = maxLengthCretor(20);
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form className={style.form_item} onSubmit={props.handleSubmit}>
       <div>
         <Field
           component={Input}
@@ -29,11 +29,16 @@ const LoginForm = (props) => {
           type="password"
         />
       </div>
-      <div>
-        <label>
-          <Field component={Input} name="rememberMe" type="checkbox" />
-          remember me
-        </label>
+      <div className={style.remember}>
+       <div className={style.remember2}> <label  htmlFor="rememberMe">remember me </label></div>
+        <div>
+          <Field
+            id="rememberMe"
+            component={Input}
+            name="rememberMe"
+            type="checkbox"
+          />
+        </div>
       </div>
       {props.error && (
         <div className={style.formSummaryError}>{props.error}</div>

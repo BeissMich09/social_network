@@ -10,4 +10,14 @@
 
 .loginBlock {
     float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.loginBlock button {
+    background-color: rgb(200, 237, 255);
+    border-radius: 3px;
+    border: solid 2px rgb(113, 208, 255);
+    height: 30px;
+    cursor: pointer;
 }

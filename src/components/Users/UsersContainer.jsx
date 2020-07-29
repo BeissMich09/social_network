@@ -6,25 +6,32 @@ import {
   follow,
   unfollow,
   setCurrentPage,
-  toggleIsFollowingProgress,
-  getUsers,
+  getUsersThunk,
 } from "../../Redux/users_reduser";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-
+import Paginator from "../common/Paginator/Paginator";
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.setCurrentPage, this.props.pageSize);
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
+    this.props.setCurrentPage(pageNumber);
   };
 
   render() {
     console.log("isFetching", this.props);
+
     return (
       <>
+        <Paginator
+          totalItemsCount={this.props.totalUsersCount}
+          pageSize={this.props.pageSize}
+          currentPage={this.props.currentPage}
+          onPageChange={this.onPageChanged}
+        />
         {this.props.isFetching ? (
           <Preloader />
         ) : (
@@ -36,7 +43,6 @@ class UsersAPIComponent extends React.Component {
             users={this.props.users}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
-            toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
             followingInProgress={this.props.followingInProgress}
           />
         )}
@@ -57,12 +63,11 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-  // withAuthRedirect,
+  withAuthRedirect,
   connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
-    toggleIsFollowingProgress,
-    getUsers,
+    getUsers: getUsersThunk,
   })
 )(UsersAPIComponent);
