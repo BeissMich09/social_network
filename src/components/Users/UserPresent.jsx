@@ -8,7 +8,7 @@ let UsersPresent = (props) => {
     <div className={style.item}>
       {props.users.map((user) => (
         <div className={style.user} key={user.id}>
-          <div>
+          <div className={style.info}>
             <NavLink to={`/profile/` + user.id}>
               <img
                 src={user.photos.small !== null ? user.photos.small : userPhoto}
