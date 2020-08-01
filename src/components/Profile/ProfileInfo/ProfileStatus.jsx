@@ -1,5 +1,4 @@
 import React from "react";
-// import style from "";
 
 class ProfileStatus extends React.Component {
   state = {
