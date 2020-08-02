@@ -1,24 +1,26 @@
 {
   "files": {
-    "main.css": "/social-network/static/css/main.5f2d1364.chunk.css",
-    "main.js": "/social-network/static/js/main.49864f65.chunk.js",
-    "main.js.map": "/social-network/static/js/main.49864f65.chunk.js.map",
+    "main.css": "/social-network/static/css/main.1c74e78d.chunk.css",
+    "main.js": "/social-network/static/js/main.b7d7633f.chunk.js",
+    "main.js.map": "/social-network/static/js/main.b7d7633f.chunk.js.map",
     "runtime-main.js": "/social-network/static/js/runtime-main.d5e68456.js",
     "runtime-main.js.map": "/social-network/static/js/runtime-main.d5e68456.js.map",
-    "static/js/2.be63fd84.chunk.js": "/social-network/static/js/2.be63fd84.chunk.js",
-    "static/js/2.be63fd84.chunk.js.map": "/social-network/static/js/2.be63fd84.chunk.js.map",
+    "static/js/2.1d69deef.chunk.js": "/social-network/static/js/2.1d69deef.chunk.js",
+    "static/js/2.1d69deef.chunk.js.map": "/social-network/static/js/2.1d69deef.chunk.js.map",
     "index.html": "/social-network/index.html",
-    "precache-manifest.d8cda779dbd97f64083abc9b016a09a9.js": "/social-network/precache-manifest.d8cda779dbd97f64083abc9b016a09a9.js",
+    "precache-manifest.a3244c374086ad0cd2782a9e1049ee6e.js": "/social-network/precache-manifest.a3244c374086ad0cd2782a9e1049ee6e.js",
     "service-worker.js": "/social-network/service-worker.js",
-    "static/css/main.5f2d1364.chunk.css.map": "/social-network/static/css/main.5f2d1364.chunk.css.map",
-    "static/js/2.be63fd84.chunk.js.LICENSE.txt": "/social-network/static/js/2.be63fd84.chunk.js.LICENSE.txt",
+    "static/css/main.1c74e78d.chunk.css.map": "/social-network/static/css/main.1c74e78d.chunk.css.map",
+    "static/js/2.1d69deef.chunk.js.LICENSE.txt": "/social-network/static/js/2.1d69deef.chunk.js.LICENSE.txt",
     "static/media/Loading-circles-acs-rectangles.webp": "/social-network/static/media/Loading-circles-acs-rectangles.492f13cb.webp",
-    "static/media/user-avatar.png": "/social-network/static/media/user-avatar.09001408.png"
+    "static/media/no_work_icon.svg": "/social-network/static/media/no_work_icon.6a84f8e0.svg",
+    "static/media/user-avatar.png": "/social-network/static/media/user-avatar.09001408.png",
+    "static/media/work_icon.svg": "/social-network/static/media/work_icon.c5c5641b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d5e68456.js",
-    "static/js/2.be63fd84.chunk.js",
-    "static/css/main.5f2d1364.chunk.css",
-    "static/js/main.49864f65.chunk.js"
+    "static/js/2.1d69deef.chunk.js",
+    "static/css/main.1c74e78d.chunk.css",
+    "static/js/main.b7d7633f.chunk.js"
   ]
 }
