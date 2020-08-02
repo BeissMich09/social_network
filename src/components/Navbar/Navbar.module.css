@@ -20,11 +20,20 @@
     height: 30px;
 }
 
-.item:hover {
+.item:not(.itemDisabled):hover {
     background-color: rgb(199, 236, 255);
-    ;
+}
+
+.itemDisabled {
+    background-color: lightslategray;
+    padding: 0 20px;
 }
 
 .item .activeLink {
     color: green;
+}
+
+.item .navLink {
+    width: 100%;
+    text-align: center;
 }
