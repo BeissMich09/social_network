@@ -3,6 +3,8 @@ import style from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "./../../../assets/img/user-avatar.png";
 import ProfileStatus from "./ProfileStatus";
+import workLogo from "../../../assets/img/work_icon.svg";
+import searchWorkLogo from "../../../assets/img/no_work_icon.svg";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -32,9 +34,9 @@ const ProfileInfo = (props) => {
         <p>
           Job:
           {props.profile.lookingForAJob ? (
-            <img src="/work_icon.svg" alt="Ищу" />
+            <img src={workLogo} alt="Есть работа" />
           ) : (
-            <img src="/no_work_icon.svg" alt="Не ищу работу" />
+            <img src={searchWorkLogo} alt="Нет работы" />
           )}
         </p>
         <p>{props.profile.lookingForAJobDescription}</p>
