@@ -4,7 +4,7 @@ import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import Setting from "./components/Setting/Setting";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
@@ -18,7 +18,6 @@ import { initializeApp } from "./Redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 
 class App extends React.Component {
-  
   componentDidMount() {
     this.props.initializeApp();
   }
@@ -32,6 +31,7 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
+          <Route path="/" render={() => <Redirect to={"/login"} />} />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/dialogues" render={() => <DialoguesConnected />} />
           <Route path="/music" render={() => <Music />} />
