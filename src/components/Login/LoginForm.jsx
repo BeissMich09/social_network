@@ -30,8 +30,8 @@ const LoginForm = (props) => {
         />
       </div>
       <div className={style.remember}>
-       <div className={style.remember2}> <label  htmlFor="rememberMe">remember me </label></div>
-        <div>
+       <div className={style.rememberLable}> <label  htmlFor="rememberMe">remember me </label></div>
+        <div className={style.checkbox}>
           <Field
             id="rememberMe"
             component={Input}
