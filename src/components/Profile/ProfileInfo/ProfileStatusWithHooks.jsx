@@ -1,57 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 
-class ProfileStatus extends React.Component {
-  state = {
-    editMode: false,
-    status: this.props.status,
+const ProfileStatusWithHooks = (props) => {
+  let [editMode, setEditMode] = useState(false);
+  let [status, setStatus] = useState(props.status);
+  const activeteEditMode = () => {
+    setEditMode(true);
   };
-  activeteEditMode = () => {
-    if (!this.state.editMode) {
-      this.setState({
-        editMode: true,
-      });
-    } else {
-      this.setState({
-        editMode: false,
-      });
-      this.props.updateStatus(this.state.status);
-    }
+  const deactiveteEditMode = () => {
+    setEditMode(false);
+    props.updateStatus(status);
   };
+  const onStatusChange = (e) => {
+    setStatus(e.currentTarget.value);
+  };
+  return (
+    <div>
+      {!editMode && (
+        <div>
+          <span onDoubleClick={activeteEditMode}>
+            {props.status || "-------"}
+          </span>
+        </div>
+      )}
+      {editMode && (
+        <div>
+          <input
+            onBlur={deactiveteEditMode}
+            onChange={onStatusChange}
+            autoFocus={true}
+            value={status}
+          ></input>
+        </div>
+      )}
+    </div>
+  );
+};
 
-  onStatusChange = (e) => {
-    this.setState({ status: e.currentTarget.value });
-  };
-
-  componentDidUpdate = (prevProps) => {
-    if (prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status,
-      });
-    }
-  };
-  render() {
-    return (
-      <div>
-        {!this.state.editMode && (
-          <div>
-            <span onClick={this.activeteEditMode}>
-              {this.props.status || "-------"}
-            </span>
-          </div>
-        )}
-        {this.state.editMode && (
-          <div>
-            <input
-              onChange={this.onStatusChange}
-              autoFocus={true}
-              onBlur={this.activeteEditMode}
-              value={this.state.status}
-            ></input>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-
-export default ProfileStatus;
+export default ProfileStatusWithHooks;
