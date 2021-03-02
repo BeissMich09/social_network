@@ -11,6 +11,16 @@ import {
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import Paginator from "../common/Paginator/Paginator";
+import {
+  getUsers,
+  getPageSize,
+  getTotalUsersCount,
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  // getUsersSuperSelector,
+} from "../../Redux/users-selectors";
+
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
@@ -49,14 +59,26 @@ class UsersAPIComponent extends React.Component {
   }
 }
 
+// let mapStateToProps = (state) => {
+//   return {
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     currentPage: state.usersPage.currentPage,
+//     followingInProgress: state.usersPage.followingInProgress,
+//     isFetching: state.usersPage.isFetching,
+//   };
+// };
+
 let mapStateToProps = (state) => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    followingInProgress: state.usersPage.followingInProgress,
-    isFetching: state.usersPage.isFetching,
+    // users:getUsersSuperSelector(state),
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    followingInProgress: getFollowingInProgress(state),
+    isFetching: getIsFetching(state),
   };
 };
 

@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
-import SidebarFriends from "./SidebarFriends/SidebarFriends";
+// import SidebarFriends from "./SidebarFriends/SidebarFriends";
 
-const Navbar = (props) => {
+const Navbar = () => {
   return (
     <nav className={style.navbar}>
       <span className={style.item}>
