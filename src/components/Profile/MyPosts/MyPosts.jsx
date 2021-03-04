@@ -3,8 +3,8 @@ import classProfile from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import NewPostForm from "./NewPostForm";
 
-
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
+  console.log("lalalal");
   let postsElem = props.postData.map((post) => (
     <Post message={post.message} like={post.likes} id={post.id} key={post.id} />
   ));
@@ -22,6 +22,6 @@ const MyPosts = (props) => {
       <div className={classProfile.added_news}>{postsElem}</div>
     </div>
   );
-};
+});
 
 export default MyPosts;

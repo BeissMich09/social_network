@@ -2,7 +2,6 @@ import React from "react";
 import style from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "./../../../assets/img/user-avatar.png";
-// import ProfileStatus from "./ProfileStatus";
 import workLogo from "../../../assets/img/work_icon.svg";
 import searchWorkLogo from "../../../assets/img/no_work_icon.svg";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";

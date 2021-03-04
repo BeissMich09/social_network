@@ -18,17 +18,18 @@ import {
   getCurrentPage,
   getFollowingInProgress,
   getIsFetching,
-  // getUsersSuperSelector,
 } from "../../Redux/users-selectors";
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    const { currentPage, pageSize } = this.props;
+    this.props.getUsers(currentPage, pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
-    this.props.setCurrentPage(pageNumber);
+    const { pageSize, getUsers, setCurrentPage } = this.props;
+    getUsers(pageNumber, pageSize);
+    setCurrentPage(pageNumber);
   };
 
   render() {
@@ -59,20 +60,8 @@ class UsersAPIComponent extends React.Component {
   }
 }
 
-// let mapStateToProps = (state) => {
-//   return {
-//     users: state.usersPage.users,
-//     pageSize: state.usersPage.pageSize,
-//     totalUsersCount: state.usersPage.totalUsersCount,
-//     currentPage: state.usersPage.currentPage,
-//     followingInProgress: state.usersPage.followingInProgress,
-//     isFetching: state.usersPage.isFetching,
-//   };
-// };
-
 let mapStateToProps = (state) => {
   return {
-    // users:getUsersSuperSelector(state),
     users: getUsers(state),
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),

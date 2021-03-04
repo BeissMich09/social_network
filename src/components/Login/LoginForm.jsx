@@ -1,7 +1,7 @@
 import React from "react";
-import { reduxForm, Field } from "redux-form";
+import { reduxForm } from "redux-form";
 import style from "./../common/FormsControls/FormsControls.module.css";
-import { Input } from "../common/FormsControls/FormsControls";
+import { createField, Input } from "../common/FormsControls/FormsControls";
 import {
   requiredField,
   maxLengthCretor,
@@ -12,32 +12,25 @@ const maxLength20 = maxLengthCretor(20);
 const LoginForm = (props) => {
   return (
     <form className={style.form_item} onSubmit={props.handleSubmit}>
-      <div>
-        <Field
-          component={Input}
-          validate={[requiredField, maxLength20]}
-          name="email"
-          placeholder="Email"
-        />
-      </div>
-      <div>
-        <Field
-          component={Input}
-          validate={[requiredField]}
-          name="password"
-          placeholder="Password"
-          type="password"
-        />
-      </div>
+      {createField("Email", "email", [requiredField, maxLength20], Input)}
+      {createField("Password", "password", [requiredField], Input, {
+        type: "password",
+      })}
+
       <div className={style.remember}>
-       <div className={style.rememberLable}> <label  htmlFor="rememberMe">remember me </label></div>
+        <div className={style.rememberLable}>
+          <label htmlFor="rememberMe">remember me </label>
+        </div>
+
         <div className={style.checkbox}>
-          <Field
-            id="rememberMe"
-            component={Input}
-            name="rememberMe"
-            type="checkbox"
-          />
+          {createField(
+            null,
+            "rememberMe",
+            null,
+            Input,
+            { type: "checkbox" },
+            { id: "rememberMe" }
+          )}
         </div>
       </div>
       {props.error && (
