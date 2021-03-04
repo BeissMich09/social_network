@@ -3,8 +3,8 @@ import Login from "./Login";
 import { login } from "../../Redux/auth-reducer";
 import React from "react";
 
-const LoginContainer = (props) => {
-  return <Login isAuth={props.isAuth} login={props.login} />;
+const LoginContainer = ({ isAuth, login }) => {
+  return <Login isAuth={isAuth} login={login} />;
 };
 
 const mapStateToProps = (state) => ({
