@@ -18,6 +18,14 @@ class ProfileStatus extends React.Component {
     }
   };
 
+  deactiveteEditMode=()=>{
+    this.setState({
+      editMode: false,
+    });
+    this.props.updateStatus(this.state.status);
+  }
+
+
   onStatusChange = (e) => {
     this.setState({ status: e.currentTarget.value });
   };
