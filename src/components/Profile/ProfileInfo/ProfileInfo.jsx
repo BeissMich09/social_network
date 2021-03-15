@@ -7,6 +7,12 @@ import searchWorkLogo from "../../../assets/img/no_work_icon.svg";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
+  const mainPhotoSelected = (e) => {
+    if (e.target.files && e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
+
   if (!props.profile) {
     return (
       <div className={style.preloader}>
@@ -25,8 +31,12 @@ const ProfileInfo = (props) => {
           }
           alt=""
         />
+        {props.isOwner && <input onChange={mainPhotoSelected} type="file" />}
       </div>
-      <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+      <ProfileStatusWithHooks
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       <div className={style.info}>
         <h3>Information</h3>
         <p>Full Name: {props.profile.fullName}</p>
