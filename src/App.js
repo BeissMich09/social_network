@@ -2,13 +2,13 @@ import React from "react";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-import { Route, withRouter, Redirect } from "react-router-dom";
+import { Route, withRouter, Redirect, HashRouter } from "react-router-dom";
 // import Friends from "./components/Friends/Friends";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./Redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import { BrowserRouter } from "react-router-dom";
+// import { HushRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./Redux/redux-store";
 import { withSuspense } from "./hoc/withSuspens";
@@ -75,13 +75,13 @@ let AppContainer = compose(
   connect(mapStateToProps, { initializeApp })
 )(App);
 
-const MainApp = (props) => {
+const MainApp = () => {
   return (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 export default MainApp;
