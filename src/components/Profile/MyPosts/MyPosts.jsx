@@ -4,7 +4,6 @@ import Post from "./Post/Post";
 import NewPostForm from "./NewPostForm";
 
 const MyPosts = React.memo((props) => {
-  console.log("lalalal");
   let postsElem = props.postData.map((post) => (
     <Post message={post.message} like={post.likes} id={post.id} key={post.id} />
   ));

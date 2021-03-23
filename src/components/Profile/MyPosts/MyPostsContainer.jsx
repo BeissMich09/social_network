@@ -15,7 +15,6 @@ let mapDispatchToProps = (dispatch) => {
     },
   };
 };
-console.log("lalalal23")
 
 let MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
