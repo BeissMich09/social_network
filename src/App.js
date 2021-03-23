@@ -43,17 +43,23 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
-          {/* <Route path="/" render={() => <Redirect to={"/login"} />} /> */}
+          <Route path="/" render={() => <Redirect to={"/login"} />} />
           <Route
             path="/profile/:userId?"
             render={withSuspense(ProfileContainer)}
           />
-          {/* <Route path="/dialogues" render={withSuspense(DialoguesConnected)} />
+          <Route path="/dialogues" render={withSuspense(DialoguesConnected)} />
           <Route path="/music" render={withSuspense(Music)} />
           <Route path="/news" render={withSuspense(News)} />
           <Route path="/setting" render={withSuspense(Setting)} />
           <Route path="/users" render={withSuspense(UsersContainer)} />
-          <Route path="/login" render={withSuspense(LoginContainer)} /> */}
+          {/* <Route
+            path="/friends"
+            // render={() => (
+            //   <Friends allFriend={this.props.state.friendPage.allFriend} />
+            )}
+          /> */}
+          <Route path="/login" render={withSuspense(LoginContainer)} />
         </div>
       </div>
     );
@@ -71,7 +77,7 @@ let AppContainer = compose(
 
 const MainApp = () => {
   return (
-    <HashRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
