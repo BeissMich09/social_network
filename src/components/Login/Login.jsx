@@ -3,9 +3,15 @@ import ReduxLoginForm from "./LoginForm";
 import { Redirect } from "react-router-dom";
 import style from "./Login.module.css";
 
-const Login = ({ login, isAuth }) => {
+const Login = ({ login, isAuth, captchaUrl }) => {
+  console.log(captchaUrl);
   const onSubmit = (formData) => {
-    login(formData.email, formData.password, formData.rememberMe);
+    login(
+      formData.email,
+      formData.password,
+      formData.rememberMe,
+      formData.captcha
+    );
   };
 
   if (isAuth) {
@@ -15,7 +21,7 @@ const Login = ({ login, isAuth }) => {
     <div className={style.item}>
       <div className={style.form}>
         <h3>Login</h3>
-        <ReduxLoginForm onSubmit={onSubmit} />
+        <ReduxLoginForm captchaUrl={captchaUrl} onSubmit={onSubmit} />
       </div>
     </div>
   );
